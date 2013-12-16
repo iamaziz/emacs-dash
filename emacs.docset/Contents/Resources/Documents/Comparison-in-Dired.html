@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Comparison in Dired - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Comparison-in-Dired"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Subdirectories-in-Dired.html#Subdirectories-in-Dired">Subdirectories in Dired</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Transforming-File-Names.html#Transforming-File-Names">Transforming File Names</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Dired.html#Dired">Dired</a>
+
+</div>
+
+<h3 class="section">30.10 File Comparison with Dired</h3>
+
+<p><a name="index-file-comparison-_0028in-Dired_0029-3143"></a><a name="index-compare-files-_0028in-Dired_0029-3144"></a>
+<a name="index-dired_002ddiff-3145"></a><a name="index-g_t_003d-_0040r_007b_0028Dired_0029_007d-3146"></a>  The <kbd>=</kbd> (<code>dired-diff</code>) command compares the current file
+(the file at point) with another file (read using the minibuffer)
+using the <samp><span class="command">diff</span></samp> program.  The file specified with the
+minibuffer is the first argument of <samp><span class="command">diff</span></samp>, and file at point
+is the second argument.  The output of the <samp><span class="command">diff</span></samp> program is
+shown in a buffer using Diff mode (see <a href="Comparing-Files.html#Comparing-Files">Comparing Files</a>).
+
+   <p>If the region is active, the default for the file read using the
+minibuffer is the file at the mark (i.e., the ordinary Emacs mark,
+not a Dired mark; see <a href="Setting-Mark.html#Setting-Mark">Setting Mark</a>).  Otherwise, if the file at
+point has a backup file (see <a href="Backup.html#Backup">Backup</a>), that is the default.
+
+   </body></html>
+

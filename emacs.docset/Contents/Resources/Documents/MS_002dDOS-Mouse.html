@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>MS-DOS Mouse - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="MS-DOS-Mouse"></a>
+<a name="MS_002dDOS-Mouse"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="MS_002dDOS-Display.html#MS_002dDOS-Display">MS-DOS Display</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="MS_002dDOS-Keyboard.html#MS_002dDOS-Keyboard">MS-DOS Keyboard</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="MS_002dDOS.html#MS_002dDOS">MS-DOS</a>
+
+</div>
+
+<h4 class="subsection">G.12.2 Mouse Usage on MS-DOS</h4>
+
+<p><a name="index-mouse-support-under-MS_002dDOS-4800"></a>  Emacs on MS-DOS supports a mouse (on the default terminal only). 
+The mouse commands work as documented, including those that use menus
+and the menu bar
+(see <a href="Menu-Bar.html#Menu-Bar">Menu Bar</a>). 
+ Scroll bars don't work in MS-DOS Emacs.  PC mice usually have only
+two buttons; these act as <kbd>Mouse-1</kbd> and <kbd>Mouse-2</kbd>, but if you
+press both of them together, that has the effect of <kbd>Mouse-3</kbd>.  If
+the mouse does have 3 buttons, Emacs detects that at startup, and all
+the 3 buttons function normally, as on X.
+
+   <p>Help strings for menu-bar and pop-up menus are displayed in the echo
+area when the mouse pointer moves across the menu items.  Highlighting
+of mouse-sensitive text
+(see <a href="Mouse-References.html#Mouse-References">Mouse References</a>)
+is also supported.
+
+   <p><a name="index-mouse_002c-set-number-of-buttons-4801"></a><a name="index-msdos_002dset_002dmouse_002dbuttons-4802"></a>  Some versions of mouse drivers don't report the number of mouse
+buttons correctly.  For example, mice with a wheel report that they
+have 3 buttons, but only 2 of them are passed to Emacs; the clicks on
+the wheel, which serves as the middle button, are not passed.  In
+these cases, you can use the <kbd>M-x msdos-set-mouse-buttons</kbd> command
+to tell Emacs how many mouse buttons to expect.  You could make such a
+setting permanent by adding this fragment to your <samp><span class="file">_emacs</span></samp> init
+file:
+
+<pre class="example">     ;; <span class="roman">Treat the mouse like a 2-button mouse.</span>
+     (msdos-set-mouse-buttons 2)
+</pre>
+   <p><a name="index-Windows-clipboard-support-4803"></a>  Emacs built for MS-DOS supports clipboard operations when it runs on
+Windows.  Commands that put text on the kill ring, or yank text from
+the ring, check the Windows clipboard first, just as Emacs does on the
+X Window System
+(see <a href="Mouse-Commands.html#Mouse-Commands">Mouse Commands</a>). 
+Only the primary selection and the cut buffer are supported by MS-DOS
+Emacs on Windows; the secondary selection always appears as empty.
+
+   <p>Due to the way clipboard access is implemented by Windows, the
+length of text you can put into the clipboard is limited by the amount
+of free DOS memory that is available to Emacs.  Usually, up to 620KB of
+text can be put into the clipboard, but this limit depends on the system
+configuration and is lower if you run Emacs as a subprocess of
+another program.  If the killed text does not fit, Emacs outputs a
+message saying so, and does not put the text into the clipboard.
+
+   <p>Null characters also cannot be put into the Windows clipboard.  If the
+killed text includes null characters, Emacs does not put such text into
+the clipboard, and displays in the echo area a message to that effect.
+
+   <p><a name="index-dos_002ddisplay_002dscancodes-4804"></a>  The variable <code>dos-display-scancodes</code>, when non-<code>nil</code>,
+directs Emacs to display the <acronym>ASCII</acronym> value and the keyboard scan code of
+each keystroke; this feature serves as a complement to the
+<code>view-lossage</code> command, for debugging.
+
+   </body></html>
+

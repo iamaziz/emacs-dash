@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Browse-URL - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Browse-URL"></a>
+<a name="Browse_002dURL"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Goto-Address-mode.html#Goto-Address-mode">Goto Address mode</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Hyperlinking.html#Hyperlinking">Hyperlinking</a>
+
+</div>
+
+<h3 class="section">45.1 Following URLs</h3>
+
+<p><a name="index-World-Wide-Web-4193"></a><a name="index-Web-4194"></a><a name="index-browse_002durl-4195"></a><a name="index-browse_002durl_002dat_002dpoint-4196"></a><a name="index-browse_002durl_002dat_002dmouse-4197"></a><a name="index-Browse_002dURL-4198"></a><a name="index-URLs-4199"></a>
+     <dl>
+<dt><kbd>M-x browse-url &lt;RET&gt; </kbd><var>url</var><kbd> &lt;RET&gt;</kbd><dd>Load a URL into a Web browser. 
+</dl>
+
+   <p>The Browse-URL package allows you to easily follow URLs from within
+Emacs.  Most URLs are followed by invoking a web browser;
+&lsquo;<samp><span class="samp">mailto:</span></samp>&rsquo; URLs are followed by invoking the <code>compose-mail</code>
+Emacs command to send mail to the specified address (see <a href="Sending-Mail.html#Sending-Mail">Sending Mail</a>).
+
+   <p>The command <kbd>M-x browse-url</kbd> prompts for a URL, and follows it. 
+If point is located near a plausible URL, that URL is offered as the
+default.  The Browse-URL package also provides other commands which
+you might like to bind to keys, such as <code>browse-url-at-point</code> and
+<code>browse-url-at-mouse</code>.
+
+   <p><a name="index-browse_002durl_002dmailto_002dfunction-4200"></a><a name="index-browse_002durl_002dbrowser_002dfunction-4201"></a>  You can customize Browse-URL's behavior via various options in the
+<code>browse-url</code> Customize group.  In particular, the option
+<code>browse-url-mailto-function</code> lets you define how to follow
+&lsquo;<samp><span class="samp">mailto:</span></samp>&rsquo; URLs, while <code>browse-url-browser-function</code> lets you
+define how to follow other types of URLs.  For more information, view
+the package commentary by typing <kbd>C-h P browse-url &lt;RET&gt;</kbd>.
+
+   </body></html>
+

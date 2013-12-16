@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Flagging Many Files - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Flagging-Many-Files"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Dired-Visiting.html#Dired-Visiting">Dired Visiting</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Dired-Deletion.html#Dired-Deletion">Dired Deletion</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Dired.html#Dired">Dired</a>
+
+</div>
+
+<h3 class="section">30.4 Flagging Many Files at Once</h3>
+
+<p><a name="index-flagging-many-files-for-deletion-_0028in-Dired_0029-2986"></a>
+  The <kbd>#</kbd>, <kbd>~</kbd>, <kbd>.</kbd>, <kbd>% &amp;</kbd>, and <kbd>% d</kbd> commands
+flag many files for deletion, based on their file names:
+
+     <dl>
+<dt><kbd>#</kbd><dd>Flag all auto-save files (files whose names start and end with &lsquo;<samp><span class="samp">#</span></samp>&rsquo;)
+for deletion (see <a href="Auto-Save.html#Auto-Save">Auto Save</a>).
+
+     <br><dt><kbd>~</kbd><dd>Flag all backup files (files whose names end with &lsquo;<samp><span class="samp">~</span></samp>&rsquo;) for deletion
+(see <a href="Backup.html#Backup">Backup</a>).
+
+     <br><dt><kbd>. </kbd><span class="roman">(Period)</span><dd>Flag excess numeric backup files for deletion.  The oldest and newest
+few backup files of any one file are exempt; the middle ones are
+flagged.
+
+     <br><dt><kbd>% &amp;</kbd><dd>Flag for deletion all files with certain kinds of names which suggest
+you could easily create those files again.
+
+     <br><dt><kbd>% d </kbd><var>regexp</var><kbd> &lt;RET&gt;</kbd><dd>Flag for deletion all files whose names match the regular expression
+<var>regexp</var>. 
+</dl>
+
+   <p><a name="index-g_t_0023-_0040r_007b_0028Dired_0029_007d-2987"></a><a name="index-dired_002dflag_002dauto_002dsave_002dfiles-2988"></a><a name="index-deleting-auto_002dsave-files-2989"></a>  <kbd>#</kbd> (<code>dired-flag-auto-save-files</code>) flags all files whose
+names look like auto-save files&mdash;that is, files whose names begin and
+end with &lsquo;<samp><span class="samp">#</span></samp>&rsquo;.  See <a href="Auto-Save.html#Auto-Save">Auto Save</a>.
+
+   <p><a name="index-g_t_007e-_0040r_007b_0028Dired_0029_007d-2990"></a><a name="index-dired_002dflag_002dbackup_002dfiles-2991"></a>  <kbd>~</kbd> (<code>dired-flag-backup-files</code>) flags all files whose names
+say they are backup files&mdash;that is, files whose names end in
+&lsquo;<samp><span class="samp">~</span></samp>&rsquo;.  See <a href="Backup.html#Backup">Backup</a>.
+
+   <p><a name="index-g_t_002e-_0040r_007b_0028Dired_0029_007d-2992"></a><a name="index-dired_002dkept_002dversions-2993"></a><a name="index-dired_002dclean_002ddirectory-2994"></a>  <kbd>.</kbd> (period, <code>dired-clean-directory</code>) flags just some of
+the backup files for deletion: all but the oldest few and newest few
+backups of any one file.  Normally, the number of newest versions kept
+for each file is given by the variable <code>dired-kept-versions</code>
+(<strong>not</strong> <code>kept-new-versions</code>; that applies only when
+saving).  The number of oldest versions to keep is given by the
+variable <code>kept-old-versions</code>.
+
+   <p>Period with a positive numeric argument, as in <kbd>C-u 3 .</kbd>,
+specifies the number of newest versions to keep, overriding
+<code>dired-kept-versions</code>.  A negative numeric argument overrides
+<code>kept-old-versions</code>, using minus the value of the argument to
+specify the number of oldest versions of each file to keep.
+
+   <p><a name="index-g_t_0025-_0026-_0040r_007b_0028Dired_0029_007d-2995"></a><a name="index-dired_002dflag_002dgarbage_002dfiles-2996"></a><a name="index-dired_002dgarbage_002dfiles_002dregexp-2997"></a><a name="index-deleting-some-backup-files-2998"></a>  <kbd>% &amp;</kbd> (<code>dired-flag-garbage-files</code>) flags files whose names
+match the regular expression specified by the variable
+<code>dired-garbage-files-regexp</code>.  By default, this matches certain
+files produced by TeX, &lsquo;<samp><span class="samp">.bak</span></samp>&rsquo; files, and the &lsquo;<samp><span class="samp">.orig</span></samp>&rsquo; and
+&lsquo;<samp><span class="samp">.rej</span></samp>&rsquo; files produced by <code>patch</code>.
+
+   <p><a name="index-dired_002dflag_002dfiles_002dregexp-2999"></a><a name="index-g_t_0025-d-_0040r_007b_0028Dired_0029_007d-3000"></a>  <kbd>% d</kbd> flags all files whose names match a specified regular
+expression (<code>dired-flag-files-regexp</code>).  Only the non-directory
+part of the file name is used in matching.  You can use &lsquo;<samp><span class="samp">^</span></samp>&rsquo; and
+&lsquo;<samp><span class="samp">$</span></samp>&rsquo; to anchor matches.  You can exclude certain subdirectories
+from marking by hiding them while you use <kbd>% d</kbd>.  See <a href="Hiding-Subdirectories.html#Hiding-Subdirectories">Hiding Subdirectories</a>.
+
+   </body></html>
+

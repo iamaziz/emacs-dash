@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>File Archives - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="File-Archives"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Remote-Files.html#Remote-Files">Remote Files</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Compressed-Files.html#Compressed-Files">Compressed Files</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Files.html#Files">Files</a>
+
+</div>
+
+<h3 class="section">18.13 File Archives</h3>
+
+<p><a name="index-mode_002c-tar-1174"></a><a name="index-Tar-mode-1175"></a><a name="index-file-archives-1176"></a>
+  A file whose name ends in &lsquo;<samp><span class="samp">.tar</span></samp>&rsquo; is normally an <dfn>archive</dfn>
+made by the <code>tar</code> program.  Emacs views these files in a special
+mode called Tar mode which provides a Dired-like list of the contents
+(see <a href="Dired.html#Dired">Dired</a>).  You can move around through the list just as you
+would in Dired, and visit the subfiles contained in the archive. 
+However, not all Dired commands are available in Tar mode.
+
+   <p>If Auto Compression mode is enabled (see <a href="Compressed-Files.html#Compressed-Files">Compressed Files</a>), then
+Tar mode is used also for compressed archives&mdash;files with extensions
+&lsquo;<samp><span class="samp">.tgz</span></samp>&rsquo;, <code>.tar.Z</code> and <code>.tar.gz</code>.
+
+   <p>The keys <kbd>e</kbd>, <kbd>f</kbd> and &lt;RET&gt; all extract a component file
+into its own buffer.  You can edit it there, and if you save the
+buffer, the edited version will replace the version in the Tar buffer. 
+Clicking with the mouse on the file name in the Tar buffer does
+likewise.  <kbd>v</kbd> extracts a file into a buffer in View mode
+(see <a href="View-Mode.html#View-Mode">View Mode</a>).  <kbd>o</kbd> extracts the file and displays it in
+another window, so you could edit the file and operate on the archive
+simultaneously.
+
+   <p><kbd>d</kbd> marks a file for deletion when you later use <kbd>x</kbd>, and
+<kbd>u</kbd> unmarks a file, as in Dired.  <kbd>C</kbd> copies a file from the
+archive to disk and <kbd>R</kbd> renames a file within the archive. 
+<kbd>g</kbd> reverts the buffer from the archive on disk.  The keys
+<kbd>M</kbd>, <kbd>G</kbd>, and <kbd>O</kbd> change the file's permission bits,
+group, and owner, respectively.
+
+   <p>Saving the Tar buffer writes a new version of the archive to disk with
+the changes you made to the components.
+
+   <p>You don't need the <code>tar</code> program to use Tar mode&mdash;Emacs reads
+the archives directly.  However, accessing compressed archives
+requires the appropriate uncompression program.
+
+   <p><a name="index-Archive-mode-1177"></a><a name="index-mode_002c-archive-1178"></a><a name="index-g_t_0040code_007barc_007d-1179"></a><a name="index-g_t_0040code_007bjar_007d-1180"></a><a name="index-g_t_0040code_007brar_007d-1181"></a><a name="index-g_t_0040code_007bzip_007d-1182"></a><a name="index-g_t_0040code_007blzh_007d-1183"></a><a name="index-g_t_0040code_007bzoo_007d-1184"></a><a name="index-g_t_0040code_007b7z_007d-1185"></a><a name="index-arc-1186"></a><a name="index-jar-1187"></a><a name="index-zip-1188"></a><a name="index-rar-1189"></a><a name="index-lzh-1190"></a><a name="index-zoo-1191"></a><a name="index-g_t7z-1192"></a><a name="index-Java-class-archives-1193"></a><a name="index-unzip-archives-1194"></a>  A separate but similar Archive mode is used for <code>arc</code>,
+<code>jar</code>, <code>lzh</code>, <code>zip</code>, <code>rar</code>, <code>7z</code>, and
+<code>zoo</code> archives, as well as <code>exe</code> files that are
+self-extracting executables.
+
+   <p>The key bindings of Archive mode are similar to those in Tar mode,
+with the addition of the <kbd>m</kbd> key which marks a file for subsequent
+operations, and <kbd>M-&lt;DEL&gt;</kbd> which unmarks all the marked files. 
+Also, the <kbd>a</kbd> key toggles the display of detailed file
+information, for those archive types where it won't fit in a single
+line.  Operations such as renaming a subfile, or changing its mode or
+owner, are supported only for some of the archive formats.
+
+   <p>Unlike Tar mode, Archive mode runs the archiving programs to unpack
+and repack archives.  However, you don't need these programs to look
+at the archive table of contents, only to extract or manipulate the
+subfiles in the archive.  Details of the program names and their
+options can be set in the &lsquo;<samp><span class="samp">Archive</span></samp>&rsquo; Customize group.
+
+   </body></html>
+

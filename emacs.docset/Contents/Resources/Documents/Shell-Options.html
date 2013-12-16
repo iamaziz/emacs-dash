@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Shell Options - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Shell-Options"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Terminal-emulator.html#Terminal-emulator">Terminal emulator</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Directory-Tracking.html#Directory-Tracking">Directory Tracking</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Shell.html#Shell">Shell</a>
+
+</div>
+
+<h3 class="section">36.7 Shell Mode Options</h3>
+
+<p><a name="index-comint_002dscroll_002dto_002dbottom_002don_002dinput-3989"></a>  If the variable <code>comint-scroll-to-bottom-on-input</code> is
+non-<code>nil</code>, insertion and yank commands scroll the selected window
+to the bottom before inserting.  The default is <code>nil</code>.
+
+   <p><a name="index-comint_002dscroll_002dshow_002dmaximum_002doutput-3990"></a>  If <code>comint-scroll-show-maximum-output</code> is non-<code>nil</code>, then
+arrival of output when point is at the end tries to scroll the last
+line of text to the bottom line of the window, showing as much useful
+text as possible.  (This mimics the scrolling behavior of most
+terminals.)  The default is <code>t</code>.
+
+   <p><a name="index-comint_002dmove_002dpoint_002dfor_002doutput-3991"></a>  By setting <code>comint-move-point-for-output</code>, you can opt for
+having point jump to the end of the buffer whenever output arrives&mdash;no
+matter where in the buffer point was before.  If the value is
+<code>this</code>, point jumps in the selected window.  If the value is
+<code>all</code>, point jumps in each window that shows the Comint buffer.  If
+the value is <code>other</code>, point jumps in all nonselected windows that
+show the current buffer.  The default value is <code>nil</code>, which means
+point does not jump to the end.
+
+   <p><a name="index-comint_002dprompt_002dread_002donly-3992"></a>  If you set <code>comint-prompt-read-only</code>, the prompts in the Comint
+buffer are read-only.
+
+   <p><a name="index-comint_002dinput_002dignoredups-3993"></a>  The variable <code>comint-input-ignoredups</code> controls whether successive
+identical inputs are stored in the input history.  A non-<code>nil</code>
+value means to omit an input that is the same as the previous input. 
+The default is <code>nil</code>, which means to store each input even if it is
+equal to the previous input.
+
+   <p><a name="index-comint_002dcompletion_002daddsuffix-3994"></a><a name="index-comint_002dcompletion_002drecexact-3995"></a><a name="index-comint_002dcompletion_002dautolist-3996"></a>  Three variables customize file name completion.  The variable
+<code>comint-completion-addsuffix</code> controls whether completion inserts a
+space or a slash to indicate a fully completed file or directory name
+(non-<code>nil</code> means do insert a space or slash). 
+<code>comint-completion-recexact</code>, if non-<code>nil</code>, directs &lt;TAB&gt;
+to choose the shortest possible completion if the usual Emacs completion
+algorithm cannot add even a single character. 
+<code>comint-completion-autolist</code>, if non-<code>nil</code>, says to list all
+the possible completions whenever completion is not exact.
+
+   <p><a name="index-shell_002dcompletion_002dexeconly-3997"></a>  Command completion normally considers only executable files. 
+If you set <code>shell-completion-execonly</code> to <code>nil</code>,
+it considers nonexecutable files as well.
+
+   <p><a name="index-shell_002dpushd_002dtohome-3998"></a><a name="index-shell_002dpushd_002ddextract-3999"></a><a name="index-shell_002dpushd_002ddunique-4000"></a>  You can configure the behavior of &lsquo;<samp><span class="samp">pushd</span></samp>&rsquo;.  Variables control
+whether &lsquo;<samp><span class="samp">pushd</span></samp>&rsquo; behaves like &lsquo;<samp><span class="samp">cd</span></samp>&rsquo; if no argument is given
+(<code>shell-pushd-tohome</code>), pop rather than rotate with a numeric
+argument (<code>shell-pushd-dextract</code>), and only add directories to the
+directory stack if they are not already on it
+(<code>shell-pushd-dunique</code>).  The values you choose should match the
+underlying shell, of course.
+
+   </body></html>
+

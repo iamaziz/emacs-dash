@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Non-Window Terminals - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Non-Window-Terminals"></a>
+<a name="Non_002dWindow-Terminals"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Text_002dOnly-Mouse.html#Text_002dOnly-Mouse">Text-Only Mouse</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Mouse-Avoidance.html#Mouse-Avoidance">Mouse Avoidance</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Frames.html#Frames">Frames</a>
+
+</div>
+
+<h3 class="section">21.19 Non-Window Terminals</h3>
+
+<p><a name="index-text-terminal-1516"></a>
+  On a text terminal, Emacs can display only one Emacs frame at a
+time.  However, you can still create multiple Emacs frames, and switch
+between them.  Switching frames on these terminals is much like
+switching between different window configurations.
+
+   <p>Use <kbd>C-x 5 2</kbd> to create a new frame and switch to it; use <kbd>C-x
+5 o</kbd> to cycle through the existing frames; use <kbd>C-x 5 0</kbd> to delete
+the current frame.
+
+   <p>Each frame has a number to distinguish it.  If your terminal can
+display only one frame at a time, the selected frame's number <var>n</var>
+appears near the beginning of the mode line, in the form
+&lsquo;<samp><span class="samp">F</span><var>n</var></samp>&rsquo;.
+
+   <p><a name="index-set_002dframe_002dname-1517"></a><a name="index-select_002dframe_002dby_002dname-1518"></a>  &lsquo;<samp><span class="samp">F</span><var>n</var></samp>&rsquo; is in fact the frame's initial name.  You can give
+frames more meaningful names if you wish, and you can select a frame
+by its name.  Use the command <kbd>M-x set-frame-name &lt;RET&gt;
+</kbd><var>name</var><kbd> &lt;RET&gt;</kbd> to specify a new name for the selected frame,
+and use <kbd>M-x select-frame-by-name &lt;RET&gt; </kbd><var>name</var><kbd> &lt;RET&gt;</kbd>
+to select a frame according to its name.  The name you specify appears
+in the mode line when the frame is selected.
+
+   </body></html>
+

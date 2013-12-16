@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Specific Customization - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Specific-Customization"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Custom-Themes.html#Custom-Themes">Custom Themes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Face-Customization.html#Face-Customization">Face Customization</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Easy-Customization.html#Easy-Customization">Easy Customization</a>
+
+</div>
+
+<h4 class="subsection">48.1.6 Customizing Specific Items</h4>
+
+     <dl>
+<dt><kbd>M-x customize-option &lt;RET&gt; </kbd><var>option</var><kbd> &lt;RET&gt;</kbd><dt><kbd>M-x customize-variable &lt;RET&gt; </kbd><var>option</var><kbd> &lt;RET&gt;</kbd><dd>Set up a customization buffer for just one user option, <var>option</var>. 
+<br><dt><kbd>M-x customize-face &lt;RET&gt; </kbd><var>face</var><kbd> &lt;RET&gt;</kbd><dd>Set up a customization buffer for just one face, <var>face</var>. 
+<br><dt><kbd>M-x customize-group &lt;RET&gt; </kbd><var>group</var><kbd> &lt;RET&gt;</kbd><dd>Set up a customization buffer for just one group, <var>group</var>. 
+<br><dt><kbd>M-x customize-apropos &lt;RET&gt; </kbd><var>regexp</var><kbd> &lt;RET&gt;</kbd><dd>Set up a customization buffer for all the settings and groups that
+match <var>regexp</var>. 
+<br><dt><kbd>M-x customize-changed &lt;RET&gt; </kbd><var>version</var><kbd> &lt;RET&gt;</kbd><dd>Set up a customization buffer with all the settings and groups
+whose meaning has changed since Emacs version <var>version</var>. 
+<br><dt><kbd>M-x customize-saved</kbd><dd>Set up a customization buffer containing all settings that you
+have saved with customization buffers. 
+<br><dt><kbd>M-x customize-unsaved</kbd><dd>Set up a customization buffer containing all settings that you have
+set but not saved. 
+</dl>
+
+   <p><a name="index-customize_002doption-4315"></a>  If you want to customize a particular user option, type <kbd>M-x
+customize-option</kbd>.  This reads the variable name, and sets up the
+customization buffer with just that one user option.  When entering
+the variable name into the minibuffer, completion is available, but
+only for the names of variables that have been loaded into Emacs.
+
+   <p><a name="index-customize_002dface-4316"></a><a name="index-customize_002dgroup-4317"></a>  Likewise, you can customize a specific face using <kbd>M-x
+customize-face</kbd>.  You can set up a customization buffer for a specific
+customization group using <kbd>M-x customize-group</kbd>.
+
+   <p><a name="index-customize_002dapropos-4318"></a>  <kbd>M-x customize-apropos</kbd> prompts for a search term&mdash;either one
+or more words separated by spaces, or a regular expression&mdash;and sets
+up a customization buffer for all <em>loaded</em> settings and groups
+with matching names.  This is like using the search field at the top
+of the customization buffer (see <a href="Customization-Groups.html#Customization-Groups">Customization Groups</a>).
+
+   <p><a name="index-customize_002dchanged-4319"></a>  When you upgrade to a new Emacs version, you might want to consider
+customizing new settings, and settings whose meanings or default
+values have changed.  To do this, use <kbd>M-x customize-changed</kbd> and
+specify a previous Emacs version number using the minibuffer.  It
+creates a customization buffer which shows all the settings and groups
+whose definitions have been changed since the specified version,
+loading them if necessary.
+
+   <p><a name="index-customize_002dsaved-4320"></a><a name="index-customize_002dunsaved-4321"></a>  If you change settings and then decide the change was a mistake, you
+can use two commands to revisit your changes.  Use <kbd>M-x
+customize-saved</kbd> to customize settings that you have saved.  Use
+<kbd>M-x customize-unsaved</kbd> to customize settings that you have set
+but not saved.
+
+   </body></html>
+

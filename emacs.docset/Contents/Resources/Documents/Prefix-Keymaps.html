@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Prefix Keymaps - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Prefix-Keymaps"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Local-Keymaps.html#Local-Keymaps">Local Keymaps</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Keymaps.html#Keymaps">Keymaps</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Key-Bindings.html#Key-Bindings">Key Bindings</a>
+
+</div>
+
+<h4 class="subsection">48.3.2 Prefix Keymaps</h4>
+
+<p>Internally, Emacs records only single events in each keymap. 
+Interpreting a key sequence of multiple events involves a chain of
+keymaps: the first keymap gives a definition for the first event,
+which is another keymap, which is used to look up the second event in
+the sequence, and so on.  Thus, a prefix key such as <kbd>C-x</kbd> or
+&lt;ESC&gt; has its own keymap, which holds the definition for the event
+that immediately follows that prefix.
+
+   <p>The definition of a prefix key is usually the keymap to use for
+looking up the following event.  The definition can also be a Lisp
+symbol whose function definition is the following keymap; the effect is
+the same, but it provides a command name for the prefix key that can be
+used as a description of what the prefix key is for.  Thus, the binding
+of <kbd>C-x</kbd> is the symbol <code>Control-X-prefix</code>, whose function
+definition is the keymap for <kbd>C-x</kbd> commands.  The definitions of
+<kbd>C-c</kbd>, <kbd>C-x</kbd>, <kbd>C-h</kbd> and &lt;ESC&gt; as prefix keys appear in
+the global map, so these prefix keys are always available.
+
+   <p>Aside from ordinary prefix keys, there is a fictitious &ldquo;prefix key&rdquo;
+which represents the menu bar; see <a href="../elisp/Menu-Bar.html#Menu-Bar">Menu Bar</a>, for special information about menu bar key bindings. 
+Mouse button events that invoke pop-up menus are also prefix keys; see
+<a href="../elisp/Menu-Keymaps.html#Menu-Keymaps">Menu Keymaps</a>, for more
+details.
+
+   <p>Some prefix keymaps are stored in variables with names:
+
+     <ul>
+<li><a name="index-ctl_002dx_002dmap-4384"></a><code>ctl-x-map</code> is the variable name for the map used for characters that
+follow <kbd>C-x</kbd>. 
+<li><a name="index-help_002dmap-4385"></a><code>help-map</code> is for characters that follow <kbd>C-h</kbd>. 
+<li><a name="index-esc_002dmap-4386"></a><code>esc-map</code> is for characters that follow &lt;ESC&gt;.  Thus, all Meta
+characters are actually defined by this map. 
+<li><a name="index-ctl_002dx_002d4_002dmap-4387"></a><code>ctl-x-4-map</code> is for characters that follow <kbd>C-x 4</kbd>. 
+<li><a name="index-mode_002dspecific_002dmap-4388"></a><code>mode-specific-map</code> is for characters that follow <kbd>C-c</kbd>. 
+</ul>
+
+   </body></html>
+

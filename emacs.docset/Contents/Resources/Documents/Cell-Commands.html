@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Cell Commands - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Cell-Commands"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Cell-Justification.html#Cell-Justification">Cell Justification</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Table-Recognition.html#Table-Recognition">Table Recognition</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Text-Based-Tables.html#Text-Based-Tables">Text Based Tables</a>
+
+</div>
+
+<h4 class="subsection">25.14.4 Commands for Table Cells</h4>
+
+<p><a name="index-table_002dforward_002dcell-2140"></a><a name="index-table_002dbackward_002dcell-2141"></a>  The commands <kbd>M-x table-forward-cell</kbd> and <kbd>M-x
+table-backward-cell</kbd> move point from the current cell to an adjacent
+cell.  The order is cyclic: when point is in the last cell of a table,
+<kbd>M-x table-forward-cell</kbd> moves to the first cell.  Likewise, when
+point is on the first cell, <kbd>M-x table-backward-cell</kbd> moves to the
+last cell.
+
+   <p><a name="index-table_002dspan_002dcell-2142"></a>  <kbd>M-x table-span-cell</kbd> prompts for a direction&mdash;right, left,
+above, or below&mdash;and merges the current cell with the adjacent cell
+in that direction.  This command signals an error if the merge would
+result in an illegitimate cell layout.
+
+   <p><a name="index-table_002dsplit_002dcell-2143"></a><a name="index-table_002dsplit_002dcell_002dvertically-2144"></a><a name="index-table_002dsplit_002dcell_002dhorizontally-2145"></a><a name="index-text_002dbased-tables_002c-splitting-cells-2146"></a><a name="index-splitting-table-cells-2147"></a>  <kbd>M-x table-split-cell</kbd> splits the current cell vertically or
+horizontally, prompting for the direction with the minibuffer.  To
+split in a specific direction, use <kbd>M-x
+table-split-cell-vertically</kbd> and <kbd>M-x
+table-split-cell-horizontally</kbd>.  When splitting vertically, the old
+cell contents are automatically split between the two new cells.  When
+splitting horizontally, you are prompted for how to divide the cell
+contents, if the cell is non-empty; the options are &lsquo;<samp><span class="samp">split</span></samp>&rsquo;
+(divide the contents at point), &lsquo;<samp><span class="samp">left</span></samp>&rsquo; (put all the contents in
+the left cell), and &lsquo;<samp><span class="samp">right</span></samp>&rsquo; (put all the contents in the right
+cell).
+
+   <p>The following commands enlarge or shrink a cell.  By default, they
+resize by one row or column; if a numeric argument is supplied, that
+specifies the number of rows or columns to resize by.
+
+     
+<a name="index-table_002dheighten_002dcell-2148"></a>
+<dl><dt><kbd>M-x table-heighten-cell</kbd><dd>Enlarge the current cell vertically.
+
+     <p><a name="index-table_002dshorten_002dcell-2149"></a><br><dt><kbd>M-x table-shorten-cell</kbd><dd>Shrink the current cell vertically.
+
+     <p><a name="index-table_002dwiden_002dcell-2150"></a><br><dt><kbd>M-x table-widen-cell</kbd><dd>Enlarge the current cell horizontally.
+
+     <p><a name="index-table_002dnarrow_002dcell-2151"></a><br><dt><kbd>M-x table-narrow-cell</kbd><dd>Shrink the current cell horizontally. 
+</dl>
+
+   </body></html>
+

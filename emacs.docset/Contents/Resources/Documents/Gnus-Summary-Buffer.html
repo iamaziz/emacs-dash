@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Gnus Summary Buffer - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Gnus-Summary-Buffer"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Gnus-Group-Buffer.html#Gnus-Group-Buffer">Gnus Group Buffer</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Gnus.html#Gnus">Gnus</a>
+
+</div>
+
+<h3 class="section">34.4 Using the Gnus Summary Buffer</h3>
+
+<p>The following commands are available in the Gnus summary buffer:
+
+     
+<a name="index-SPC-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3831"></a>
+<a name="index-gnus_002dgroup_002dread_002dgroup-3832"></a>
+<dl><dt><kbd>&lt;SPC&gt;</kbd><dd>If there is no article selected, select the article on the current
+line and display its article buffer.  Otherwise, try scrolling the
+selected article buffer in its window; on reaching the end of the
+buffer, select the next unread article.
+
+     <p>Thus, you can read through all articles by repeatedly typing
+&lt;SPC&gt;.
+
+     <p><a name="index-DEL-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3833"></a><a name="index-gnus_002dsummary_002dprev_002dpage-3834"></a><br><dt><kbd>&lt;DEL&gt;</kbd><dd>Scroll the text of the article backwards.
+
+     <p><a name="index-n-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3835"></a><a name="index-gnus_002dgroup_002dnext_002dunread_002dgroup-3836"></a><a name="index-gnus_002dsummary_002dnext_002dunread_002darticle-3837"></a><br><dt><kbd>n</kbd><dd>Select the next unread article.
+
+     <p><a name="index-p-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3838"></a><a name="index-gnus_002dgroup_002dprev_002dunread_002dgroup-3839"></a><a name="index-gnus_002dsummary_002dprev_002dunread_002darticle-3840"></a><br><dt><kbd>p</kbd><dd>Select the previous unread article.
+
+     <p><a name="index-s-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3841"></a><a name="index-gnus_002dsummary_002disearch_002darticle-3842"></a><br><dt><kbd>s</kbd><dd>Do an incremental search on the selected article buffer, as if you
+switched to the buffer and typed <kbd>C-s</kbd> (see <a href="Incremental-Search.html#Incremental-Search">Incremental Search</a>).
+
+     <p><a name="index-M_002ds-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3843"></a><a name="index-gnus_002dsummary_002dsearch_002darticle_002dforward-3844"></a><br><dt><kbd>M-s </kbd><var>regexp</var><kbd> &lt;RET&gt;</kbd><dd>Search forward for articles containing a match for <var>regexp</var>.
+
+     <p><a name="index-q-_0040r_007b_0028Gnus-Summary-mode_0029_007d-3845"></a><br><dt><kbd>q</kbd><dd>Exit the summary buffer and return to the group buffer. 
+</dl>
+
+   </body></html>
+

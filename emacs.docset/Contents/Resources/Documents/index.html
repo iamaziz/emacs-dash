@@ -1,0 +1,3327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985-1987, 1993-2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being "The GNU Manifesto,"
+     "Distribution" and "GNU GENERAL PUBLIC LICENSE," with the
+     Front-Cover texts being "A GNU Manual," and with the Back-Cover
+     Texts as in (a) below.  A copy of the license is included in the
+     section entitled "GNU Free Documentation License."
+
+     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+     modify this GNU manual.  Buying copies from the FSF supports it in
+     developing GNU and promoting software freedom."
+   -->
+</head>
+<body>
+<div id="content" class="inner">
+
+<h2 class="unnumbered">The Emacs Editor</h2>
+
+<p>Emacs is the extensible, customizable, self-documenting real-time
+display editor.  This manual describes how to edit with Emacs and
+some of the ways to customize it; it corresponds to GNU Emacs version
+24.3.
+
+   <p>The homepage for GNU Emacs is at
+<a href="/software/emacs/">http://www.gnu.org/software/emacs/</a>.<br>
+To view this manual in other formats, click
+<a href="/software/emacs/manual/emacs.html">here</a>.<br>
+You can also purchase a printed copy from the
+<a href="http://shop.fsf.org/product/emacs-manual/">FSF store</a>.
+
+   <p>For information on extending Emacs, see <a href="../elisp/index.html#Top">Emacs Lisp</a>.
+
+   <p>This is the <cite>GNU Emacs Manual</cite>,
+updated for Emacs version 24.3.
+
+
+
+<!-- Note that the TeX version generates its own TOC, so the ifnottex's -->
+<!-- here are not really necessary. -->
+<table style="float:left" width="100%">
+  <tr>
+    <td><a accesskey="1" href="Distrib.html#Distrib">Distrib</a></td>
+    <td>How to get the latest Emacs distribution.</td>
+  </tr>
+  <tr>
+    <td><a accesskey="2" href="Intro.html#Intro">Intro</a></td>
+    <td>An introduction to Emacs concepts.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Important General Concepts
+  </th></tr>
+  <tr>
+    <td><a accesskey="3" href="Screen.html#Screen">Screen</a></td>
+    <td>How to interpret what you see on the screen.</td>
+  </tr>
+  <tr>
+    <td><a accesskey="4" href="User-Input.html#User-Input">User Input</a></td>
+    <td>Kinds of input events (characters, buttons,
+                          function keys).</td>
+  </tr>
+  <tr>
+    <td><a accesskey="5" href="Keys.html#Keys">Keys</a></td>
+    <td>Key sequences: what you type to request one
+                          editing action.</td>
+  </tr>
+  <tr>
+    <td><a accesskey="6" href="Commands.html#Commands">Commands</a></td>
+    <td>Named functions run by key sequences to do editing.</td>
+  </tr>
+  <tr>
+    <td><a accesskey="7" href="Entering-Emacs.html#Entering-Emacs">Entering Emacs</a></td>
+    <td>Starting Emacs from the shell.</td>
+  </tr>
+  <tr>
+    <td><a accesskey="8" href="Exiting.html#Exiting">Exiting</a></td>
+    <td>Stopping or killing Emacs.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Fundamental Editing Commands
+  </th></tr>
+  <tr>
+    <td><a accesskey="9" href="Basic.html#Basic">Basic</a></td>
+    <td>The most basic editing commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Minibuffer.html#Minibuffer">Minibuffer</a></td>
+    <td>Entering arguments that are prompted for.</td>
+  </tr>
+  <tr>
+    <td><a href="M_002dx.html#M_002dx">M-x</a></td>
+    <td>Invoking commands by their names.</td>
+  </tr>
+  <tr>
+    <td><a href="Help.html#Help">Help</a></td>
+    <td>Commands for asking Emacs about its commands.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Important Text-Changing Commands
+  </th></tr>
+  <tr>
+    <td><a href="Mark.html#Mark">Mark</a></td>
+    <td>The mark: how to delimit a "region" of text.</td>
+  </tr>
+  <tr>
+    <td><a href="Killing.html#Killing">Killing</a></td>
+    <td>Killing (cutting) and yanking (copying) text.</td>
+  </tr>
+  <tr>
+    <td><a href="Registers.html#Registers">Registers</a></td>
+    <td>Saving a text string or a location in the buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Display.html#Display">Display</a></td>
+    <td>Controlling what text is displayed.</td>
+  </tr>
+  <tr>
+    <td><a href="Search.html#Search">Search</a></td>
+    <td>Finding or replacing occurrences of a string.</td>
+  </tr>
+  <tr>
+    <td><a href="Fixit.html#Fixit">Fixit</a></td>
+    <td>Commands especially useful for fixing typos.</td>
+  </tr>
+  <tr>
+    <td><a href="Keyboard-Macros.html#Keyboard-Macros">Keyboard Macros</a></td>
+    <td>Recording a sequence of keystrokes to be replayed.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Major Structures of Emacs
+  </th></tr>
+  <tr>
+    <td><a href="Files.html#Files">Files</a></td>
+    <td>All about handling files.</td>
+  </tr>
+  <tr>
+    <td><a href="Buffers.html#Buffers">Buffers</a></td>
+    <td>Multiple buffers; editing several files at once.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows.html#Windows">Windows</a></td>
+    <td>Viewing multiple pieces of text in one frame.</td>
+  </tr>
+  <tr>
+    <td><a href="Frames.html#Frames">Frames</a></td>
+    <td>Using multiple "windows" on your display.</td>
+  </tr>
+  <tr>
+    <td><a href="International.html#International">International</a></td>
+    <td>Using non-<acronym>ASCII</acronym> character sets.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Advanced Features
+  </th></tr>
+  <tr>
+    <td><a href="Modes.html#Modes">Modes</a></td>
+    <td>Major and minor modes alter Emacs's basic behavior.</td>
+  </tr>
+  <tr>
+    <td><a href="Indentation.html#Indentation">Indentation</a></td>
+    <td>Editing the white space at the beginnings of lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Text.html#Text">Text</a></td>
+    <td>Commands and modes for editing human languages.</td>
+  </tr>
+  <tr>
+    <td><a href="Programs.html#Programs">Programs</a></td>
+    <td>Commands and modes for editing programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Building.html#Building">Building</a></td>
+    <td>Compiling, running and debugging programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Maintaining.html#Maintaining">Maintaining</a></td>
+    <td>Features for maintaining large programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Abbrevs.html#Abbrevs">Abbrevs</a></td>
+    <td>Defining text abbreviations to reduce typing.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired.html#Dired">Dired</a></td>
+    <td>Directory and file manager.</td>
+  </tr>
+  <tr>
+    <td><a href="Calendar_002fDiary.html#Calendar_002fDiary">Calendar/Diary</a></td>
+    <td>Calendar and diary facilities.</td>
+  </tr>
+  <tr>
+    <td><a href="Sending-Mail.html#Sending-Mail">Sending Mail</a></td>
+    <td>Sending mail in Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail.html#Rmail">Rmail</a></td>
+    <td>Reading mail in Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Gnus.html#Gnus">Gnus</a></td>
+    <td>A flexible mail and news reader.</td>
+  </tr>
+  <tr>
+    <td><a href="Document-View.html#Document-View">Document View</a></td>
+    <td>Viewing PDF, PS and DVI files.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell.html#Shell">Shell</a></td>
+    <td>Executing shell commands from Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Emacs-Server.html#Emacs-Server">Emacs Server</a></td>
+    <td>Using Emacs as an editing server.</td>
+  </tr>
+  <tr>
+    <td><a href="Printing.html#Printing">Printing</a></td>
+    <td>Printing hardcopies of buffers or regions.</td>
+  </tr>
+  <tr>
+    <td><a href="Sorting.html#Sorting">Sorting</a></td>
+    <td>Sorting lines, paragraphs or pages within Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Picture-Mode.html#Picture-Mode">Picture Mode</a></td>
+    <td>Editing pictures made up of text characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Editing-Binary-Files.html#Editing-Binary-Files">Editing Binary Files</a></td>
+    <td>Editing binary files with Hexl mode.</td>
+  </tr>
+  <tr>
+    <td><a href="Saving-Emacs-Sessions.html#Saving-Emacs-Sessions">Saving Emacs Sessions</a></td>
+    <td>Saving Emacs state from one session to the next.</td>
+  </tr>
+  <tr>
+    <td><a href="Recursive-Edit.html#Recursive-Edit">Recursive Edit</a></td>
+    <td>Performing edits while "within another command".</td>
+  </tr>
+  <tr>
+    <td><a href="Emulation.html#Emulation">Emulation</a></td>
+    <td>Emulating some other editors with Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Hyperlinking.html#Hyperlinking">Hyperlinking</a></td>
+    <td>Following links in buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Amusements.html#Amusements">Amusements</a></td>
+    <td>Various games and hacks.</td>
+  </tr>
+  <tr>
+    <td><a href="Packages.html#Packages">Packages</a></td>
+    <td>Installing additional features.</td>
+  </tr>
+  <tr>
+    <td><a href="Customization.html#Customization">Customization</a></td>
+    <td>Modifying the behavior of Emacs.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Recovery from Problems
+  </th></tr>
+  <tr>
+    <td><a href="Quitting.html#Quitting">Quitting</a></td>
+    <td>Quitting and aborting.</td>
+  </tr>
+  <tr>
+    <td><a href="Lossage.html#Lossage">Lossage</a></td>
+    <td>What to do if Emacs is hung or malfunctioning.</td>
+  </tr>
+  <tr>
+    <td><a href="Bugs.html#Bugs">Bugs</a></td>
+    <td>How and when to report a bug.</td>
+  </tr>
+  <tr>
+    <td><a href="Contributing.html#Contributing">Contributing</a></td>
+    <td>How to contribute improvements to Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Service.html#Service">Service</a></td>
+    <td>How to get help for your own Emacs needs.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Appendices
+  </th></tr>
+  <tr>
+    <td><a href="Copying.html#Copying">Copying</a></td>
+    <td>The GNU General Public License gives you permission
+                          to redistribute GNU Emacs on certain terms;
+                          it also explains that there is no warranty.</td>
+  </tr>
+  <tr>
+    <td><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a></td>
+    <td>The license for this documentation.</td>
+  </tr>
+  <tr>
+    <td><a href="Emacs-Invocation.html#Emacs-Invocation">Emacs Invocation</a></td>
+    <td>Hairy startup options.</td>
+  </tr>
+  <tr>
+    <td><a href="X-Resources.html#X-Resources">X Resources</a></td>
+    <td>X resources for customizing Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Antinews.html#Antinews">Antinews</a></td>
+    <td>Information about Emacs version 23.</td>
+  </tr>
+  <tr>
+    <td><a href="Mac-OS-_002f-GNUstep.html#Mac-OS-_002f-GNUstep">Mac OS / GNUstep</a></td>
+    <td>Using Emacs under Mac OS and GNUstep.</td>
+  </tr>
+  <tr>
+    <td><a href="Microsoft-Windows.html#Microsoft-Windows">Microsoft Windows</a></td>
+    <td>Using Emacs on Microsoft Windows and MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="Manifesto.html#Manifesto">Manifesto</a></td>
+    <td>What's GNU?  Gnu's Not Unix!</td>
+  </tr>
+  <tr>
+    <td><a href="Glossary.html#Glossary">Glossary</a></td>
+    <td>Terms used in this manual.</td>
+  </tr>
+  <tr>
+    <td><a href="Acknowledgments.html#Acknowledgments">Acknowledgments</a></td>
+    <td>Major contributors to GNU Emacs.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Indexes (each index contains a large menu)
+  </th></tr>
+  <tr>
+    <td><a href="Key-Index.html#Key-Index">Key Index</a></td>
+    <td>An item for each standard Emacs key sequence.</td>
+  </tr>
+  <tr>
+    <td><a href="Option-Index.html#Option-Index">Option Index</a></td>
+    <td>An item for every command-line option.</td>
+  </tr>
+  <tr>
+    <td><a href="Command-Index.html#Command-Index">Command Index</a></td>
+    <td>An item for each command name.</td>
+  </tr>
+  <tr>
+    <td><a href="Variable-Index.html#Variable-Index">Variable Index</a></td>
+    <td>An item for each documented variable.</td>
+  </tr>
+  <tr>
+    <td><a href="Concept-Index.html#Concept-Index">Concept Index</a></td>
+    <td>An item for each concept.
+<!-- Do NOT modify the following 3 lines!  They must have this form to -->
+<!-- be correctly identified by `texinfo-multiple-files-update'.  In -->
+<!-- particular, the detailed menu header line MUST be identical to the -->
+<!-- value of `texinfo-master-menu-header'.  See texnfo-upd.el. -->
+
+  </td></tr></table>
+
+<h3>Detailed Node Listing</h3>
+
+<p>Here are some other nodes which are really subnodes of the ones
+already listed, mentioned here so you can get to them in one step:</p>
+
+<table  style="float:left" width="100%">
+  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Organization of the Screen
+
+  </th></tr>
+  <tr>
+    <td><a href="Point.html#Point">Point</a></td>
+    <td>The place in the text where editing commands operate.</td>
+  </tr>
+  <tr>
+    <td><a href="Echo-Area.html#Echo-Area">Echo Area</a></td>
+    <td>Short messages appear at the bottom of the screen.</td>
+  </tr>
+  <tr>
+    <td><a href="Mode-Line.html#Mode-Line">Mode Line</a></td>
+    <td>Interpreting the mode line.</td>
+  </tr>
+  <tr>
+    <td><a href="Menu-Bar.html#Menu-Bar">Menu Bar</a></td>
+    <td>How to use the menu bar.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Basic Editing Commands
+
+  </th></tr>
+  <tr>
+    <td><a href="Inserting-Text.html#Inserting-Text">Inserting Text</a></td>
+    <td>Inserting text by simply typing it.</td>
+  </tr>
+  <tr>
+    <td><a href="Moving-Point.html#Moving-Point">Moving Point</a></td>
+    <td>Moving the cursor to the place where you want to
+                        change something.</td>
+  </tr>
+  <tr>
+    <td><a href="Erasing.html#Erasing">Erasing</a></td>
+    <td>Deleting and killing text.</td>
+  </tr>
+  <tr>
+    <td><a href="Basic-Undo.html#Basic-Undo">Basic Undo</a></td>
+    <td>Undoing recent changes in the text.</td>
+  </tr>
+  <tr>
+    <td><a href="Basic-Files.html#Basic-Files">Basic Files</a></td>
+    <td>Visiting, creating, and saving files.</td>
+  </tr>
+  <tr>
+    <td><a href="Basic-Help.html#Basic-Help">Basic Help</a></td>
+    <td>Asking what a character does.</td>
+  </tr>
+  <tr>
+    <td><a href="Blank-Lines.html#Blank-Lines">Blank Lines</a></td>
+    <td>Making and deleting blank lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Continuation-Lines.html#Continuation-Lines">Continuation Lines</a></td>
+    <td>How Emacs displays lines too wide for the screen.</td>
+  </tr>
+  <tr>
+    <td><a href="Position-Info.html#Position-Info">Position Info</a></td>
+    <td>What line, row, or column is point on?</td>
+  </tr>
+  <tr>
+    <td><a href="Arguments.html#Arguments">Arguments</a></td>
+    <td>Numeric arguments for repeating a command N times.</td>
+  </tr>
+  <tr>
+    <td><a href="Repeating.html#Repeating">Repeating</a></td>
+    <td>Repeating the previous command quickly.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Minibuffer
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Minibuffer.html#Basic-Minibuffer">Basic Minibuffer</a></td>
+    <td>Basic usage of the minibuffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Minibuffer-File.html#Minibuffer-File">Minibuffer File</a></td>
+    <td>Entering file names with the minibuffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Minibuffer-Edit.html#Minibuffer-Edit">Minibuffer Edit</a></td>
+    <td>How to edit in the minibuffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Completion.html#Completion">Completion</a></td>
+    <td>An abbreviation facility for minibuffer input.</td>
+  </tr>
+  <tr>
+    <td><a href="Minibuffer-History.html#Minibuffer-History">Minibuffer History</a></td>
+    <td>Reusing recent minibuffer arguments.</td>
+  </tr>
+  <tr>
+    <td><a href="Repetition.html#Repetition">Repetition</a></td>
+    <td>Re-executing commands that used the minibuffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Passwords.html#Passwords">Passwords</a></td>
+    <td>Entering passwords in the echo area.</td>
+  </tr>
+  <tr>
+    <td><a href="Yes-or-No-Prompts.html#Yes-or-No-Prompts">Yes or No Prompts</a></td>
+    <td>Replying yes or no in the echo area.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Completion
+
+  </th></tr>
+  <tr>
+    <td><a href="Completion-Example.html#Completion-Example">Completion Example</a></td>
+    <td>Examples of using completion.</td>
+  </tr>
+  <tr>
+    <td><a href="Completion-Commands.html#Completion-Commands">Completion Commands</a></td>
+    <td>A list of completion commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Completion-Exit.html#Completion-Exit">Completion Exit</a></td>
+    <td>Completion and minibuffer text submission.</td>
+  </tr>
+  <tr>
+    <td><a href="Completion-Styles.html#Completion-Styles">Completion Styles</a></td>
+    <td>How completion matches are chosen.</td>
+  </tr>
+  <tr>
+    <td><a href="Completion-Options.html#Completion-Options">Completion Options</a></td>
+    <td>Options for completion.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Help
+
+  </th></tr>
+  <tr>
+    <td><a href="Help-Summary.html#Help-Summary">Help Summary</a></td>
+    <td>Brief list of all Help commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Key-Help.html#Key-Help">Key Help</a></td>
+    <td>Asking what a key does in Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Name-Help.html#Name-Help">Name Help</a></td>
+    <td>Asking about a command, variable or function name.</td>
+  </tr>
+  <tr>
+    <td><a href="Apropos.html#Apropos">Apropos</a></td>
+    <td>Asking what pertains to a given topic.</td>
+  </tr>
+  <tr>
+    <td><a href="Help-Mode.html#Help-Mode">Help Mode</a></td>
+    <td>Special features of Help mode and Help buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Package-Keywords.html#Package-Keywords">Package Keywords</a></td>
+    <td>Finding Lisp libraries by keywords (topics).</td>
+  </tr>
+  <tr>
+    <td><a href="Language-Help.html#Language-Help">Language Help</a></td>
+    <td>Help relating to international language support.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-Help.html#Misc-Help">Misc Help</a></td>
+    <td>Other help commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Help-Files.html#Help-Files">Help Files</a></td>
+    <td>Commands to display auxiliary help files.</td>
+  </tr>
+  <tr>
+    <td><a href="Help-Echo.html#Help-Echo">Help Echo</a></td>
+    <td>Help on active text and tooltips ("balloon help").
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Mark and the Region
+
+  </th></tr>
+  <tr>
+    <td><a href="Setting-Mark.html#Setting-Mark">Setting Mark</a></td>
+    <td>Commands to set the mark.</td>
+  </tr>
+  <tr>
+    <td><a href="Marking-Objects.html#Marking-Objects">Marking Objects</a></td>
+    <td>Commands to put region around textual units.</td>
+  </tr>
+  <tr>
+    <td><a href="Using-Region.html#Using-Region">Using Region</a></td>
+    <td>Summary of ways to operate on contents of the region.</td>
+  </tr>
+  <tr>
+    <td><a href="Mark-Ring.html#Mark-Ring">Mark Ring</a></td>
+    <td>Previous mark positions saved so you can go back there.</td>
+  </tr>
+  <tr>
+    <td><a href="Global-Mark-Ring.html#Global-Mark-Ring">Global Mark Ring</a></td>
+    <td>Previous mark positions in various buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Shift-Selection.html#Shift-Selection">Shift Selection</a></td>
+    <td>Using shifted cursor motion keys.</td>
+  </tr>
+  <tr>
+    <td><a href="Disabled-Transient-Mark.html#Disabled-Transient-Mark">Disabled Transient Mark</a></td>
+    <td>Leaving regions unhighlighted by default.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Killing and Moving Text
+
+  </th></tr>
+  <tr>
+    <td><a href="Deletion-and-Killing.html#Deletion-and-Killing">Deletion and Killing</a></td>
+    <td>Commands that remove text.</td>
+  </tr>
+  <tr>
+    <td><a href="Yanking.html#Yanking">Yanking</a></td>
+    <td>Commands that insert text.</td>
+  </tr>
+  <tr>
+    <td><a href="Cut-and-Paste.html#Cut-and-Paste">Cut and Paste</a></td>
+    <td>Clipboard and selections on graphical displays.</td>
+  </tr>
+  <tr>
+    <td><a href="Accumulating-Text.html#Accumulating-Text">Accumulating Text</a></td>
+    <td>Other methods to add text to the buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Rectangles.html#Rectangles">Rectangles</a></td>
+    <td>Operating on text in rectangular areas.</td>
+  </tr>
+  <tr>
+    <td><a href="CUA-Bindings.html#CUA-Bindings">CUA Bindings</a></td>
+    <td>Using <kbd>C-x</kbd>/<kbd>C-c</kbd>/<kbd>C-v</kbd> to kill and yank.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Deletion and Killing
+
+  </th></tr>
+  <tr>
+    <td><a href="Deletion.html#Deletion">Deletion</a></td>
+    <td>Commands for deleting small amounts of text and
+                          blank areas.</td>
+  </tr>
+  <tr>
+    <td><a href="Killing-by-Lines.html#Killing-by-Lines">Killing by Lines</a></td>
+    <td>How to kill entire lines of text at one time.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-Kill-Commands.html#Other-Kill-Commands">Other Kill Commands</a></td>
+    <td>Commands to kill large regions of text and
+                          syntactic units such as words and sentences.</td>
+  </tr>
+  <tr>
+    <td><a href="Kill-Options.html#Kill-Options">Kill Options</a></td>
+    <td>Options that affect killing.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Yanking
+
+  </th></tr>
+  <tr>
+    <td><a href="Kill-Ring.html#Kill-Ring">Kill Ring</a></td>
+    <td>Where killed text is stored.</td>
+  </tr>
+  <tr>
+    <td><a href="Earlier-Kills.html#Earlier-Kills">Earlier Kills</a></td>
+    <td>Yanking something killed some time ago.</td>
+  </tr>
+  <tr>
+    <td><a href="Appending-Kills.html#Appending-Kills">Appending Kills</a></td>
+    <td>Several kills in a row all yank together.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">"Cut and Paste" Operations on Graphical Displays
+
+  </th></tr>
+  <tr>
+    <td><a href="Clipboard.html#Clipboard">Clipboard</a></td>
+    <td>How Emacs uses the system clipboard.</td>
+  </tr>
+  <tr>
+    <td><a href="Primary-Selection.html#Primary-Selection">Primary Selection</a></td>
+    <td>The temporarily selected text selection.</td>
+  </tr>
+  <tr>
+    <td><a href="Secondary-Selection.html#Secondary-Selection">Secondary Selection</a></td>
+    <td>Cutting without altering point and mark.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Registers
+
+  </th></tr>
+  <tr>
+    <td><a href="Position-Registers.html#Position-Registers">Position Registers</a></td>
+    <td>Saving positions in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Registers.html#Text-Registers">Text Registers</a></td>
+    <td>Saving text in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="Rectangle-Registers.html#Rectangle-Registers">Rectangle Registers</a></td>
+    <td>Saving rectangles in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="Configuration-Registers.html#Configuration-Registers">Configuration Registers</a></td>
+    <td>Saving window configurations in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="Number-Registers.html#Number-Registers">Number Registers</a></td>
+    <td>Numbers in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Registers.html#File-Registers">File Registers</a></td>
+    <td>File names in registers.</td>
+  </tr>
+  <tr>
+    <td><a href="Bookmarks.html#Bookmarks">Bookmarks</a></td>
+    <td>Bookmarks are like registers, but persistent.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Controlling the Display
+
+  </th></tr>
+  <tr>
+    <td><a href="Scrolling.html#Scrolling">Scrolling</a></td>
+    <td>Commands to move text up and down in a window.</td>
+  </tr>
+  <tr>
+    <td><a href="Recentering.html#Recentering">Recentering</a></td>
+    <td>A scroll command that centers the current line.</td>
+  </tr>
+  <tr>
+    <td><a href="Auto-Scrolling.html#Auto-Scrolling">Auto Scrolling</a></td>
+    <td>Redisplay scrolls text automatically when needed.</td>
+  </tr>
+  <tr>
+    <td><a href="Horizontal-Scrolling.html#Horizontal-Scrolling">Horizontal Scrolling</a></td>
+    <td>Moving text left and right in a window.</td>
+  </tr>
+  <tr>
+    <td><a href="Narrowing.html#Narrowing">Narrowing</a></td>
+    <td>Restricting display and editing to a portion
+                             of the buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="View-Mode.html#View-Mode">View Mode</a></td>
+    <td>Viewing read-only buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Follow-Mode.html#Follow-Mode">Follow Mode</a></td>
+    <td>Follow mode lets two windows scroll as one.</td>
+  </tr>
+  <tr>
+    <td><a href="Faces.html#Faces">Faces</a></td>
+    <td>How to change the display style using faces.</td>
+  </tr>
+  <tr>
+    <td><a href="Colors.html#Colors">Colors</a></td>
+    <td>Specifying colors for faces.</td>
+  </tr>
+  <tr>
+    <td><a href="Standard-Faces.html#Standard-Faces">Standard Faces</a></td>
+    <td>The main predefined faces.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Scale.html#Text-Scale">Text Scale</a></td>
+    <td>Increasing or decreasing text size in a buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Font-Lock.html#Font-Lock">Font Lock</a></td>
+    <td>Minor mode for syntactic highlighting using faces.</td>
+  </tr>
+  <tr>
+    <td><a href="Highlight-Interactively.html#Highlight-Interactively">Highlight Interactively</a></td>
+    <td>Tell Emacs what text to highlight.</td>
+  </tr>
+  <tr>
+    <td><a href="Fringes.html#Fringes">Fringes</a></td>
+    <td>Enabling or disabling window fringes.</td>
+  </tr>
+  <tr>
+    <td><a href="Displaying-Boundaries.html#Displaying-Boundaries">Displaying Boundaries</a></td>
+    <td>Displaying top and bottom of the buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Useless-Whitespace.html#Useless-Whitespace">Useless Whitespace</a></td>
+    <td>Showing possibly spurious trailing whitespace.</td>
+  </tr>
+  <tr>
+    <td><a href="Selective-Display.html#Selective-Display">Selective Display</a></td>
+    <td>Hiding lines with lots of indentation.</td>
+  </tr>
+  <tr>
+    <td><a href="Optional-Mode-Line.html#Optional-Mode-Line">Optional Mode Line</a></td>
+    <td>Optional mode line display features.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Display.html#Text-Display">Text Display</a></td>
+    <td>How text characters are normally displayed.</td>
+  </tr>
+  <tr>
+    <td><a href="Cursor-Display.html#Cursor-Display">Cursor Display</a></td>
+    <td>Features for displaying the cursor.</td>
+  </tr>
+  <tr>
+    <td><a href="Line-Truncation.html#Line-Truncation">Line Truncation</a></td>
+    <td>Truncating lines to fit the screen width instead
+                             of continuing them to multiple screen lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Visual-Line-Mode.html#Visual-Line-Mode">Visual Line Mode</a></td>
+    <td>Word wrap and screen line-based editing.</td>
+  </tr>
+  <tr>
+    <td><a href="Display-Custom.html#Display-Custom">Display Custom</a></td>
+    <td>Information on variables for customizing display.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Searching and Replacement
+
+  </th></tr>
+  <tr>
+    <td><a href="Incremental-Search.html#Incremental-Search">Incremental Search</a></td>
+    <td>Search happens as you type the string.</td>
+  </tr>
+  <tr>
+    <td><a href="Nonincremental-Search.html#Nonincremental-Search">Nonincremental Search</a></td>
+    <td>Specify entire string and then search.</td>
+  </tr>
+  <tr>
+    <td><a href="Word-Search.html#Word-Search">Word Search</a></td>
+    <td>Search for sequence of words.</td>
+  </tr>
+  <tr>
+    <td><a href="Symbol-Search.html#Symbol-Search">Symbol Search</a></td>
+    <td>Search for a source code symbol.</td>
+  </tr>
+  <tr>
+    <td><a href="Regexp-Search.html#Regexp-Search">Regexp Search</a></td>
+    <td>Search for match for a regexp.</td>
+  </tr>
+  <tr>
+    <td><a href="Regexps.html#Regexps">Regexps</a></td>
+    <td>Syntax of regular expressions.</td>
+  </tr>
+  <tr>
+    <td><a href="Regexp-Backslash.html#Regexp-Backslash">Regexp Backslash</a></td>
+    <td>Regular expression constructs starting with `\'.</td>
+  </tr>
+  <tr>
+    <td><a href="Regexp-Example.html#Regexp-Example">Regexp Example</a></td>
+    <td>A complex regular expression explained.</td>
+  </tr>
+  <tr>
+    <td><a href="Search-Case.html#Search-Case">Search Case</a></td>
+    <td>To ignore case while searching, or not.</td>
+  </tr>
+  <tr>
+    <td><a href="Replace.html#Replace">Replace</a></td>
+    <td>Search, and replace some or all matches.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-Repeating-Search.html#Other-Repeating-Search">Other Repeating Search</a></td>
+    <td>Operating on all matches for some regexp.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Incremental Search
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Isearch.html#Basic-Isearch">Basic Isearch</a></td>
+    <td>Basic incremental search commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Repeat-Isearch.html#Repeat-Isearch">Repeat Isearch</a></td>
+    <td>Searching for the same string again.</td>
+  </tr>
+  <tr>
+    <td><a href="Error-in-Isearch.html#Error-in-Isearch">Error in Isearch</a></td>
+    <td>When your string is not found.</td>
+  </tr>
+  <tr>
+    <td><a href="Special-Isearch.html#Special-Isearch">Special Isearch</a></td>
+    <td>Special input in incremental search.</td>
+  </tr>
+  <tr>
+    <td><a href="Isearch-Yank.html#Isearch-Yank">Isearch Yank</a></td>
+    <td>Commands that grab text into the search string
+                          or else edit the search string.</td>
+  </tr>
+  <tr>
+    <td><a href="Isearch-Scroll.html#Isearch-Scroll">Isearch Scroll</a></td>
+    <td>Scrolling during an incremental search.</td>
+  </tr>
+  <tr>
+    <td><a href="Isearch-Minibuffer.html#Isearch-Minibuffer">Isearch Minibuffer</a></td>
+    <td>Incremental search of the minibuffer history.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Replacement Commands
+
+  </th></tr>
+  <tr>
+    <td><a href="Unconditional-Replace.html#Unconditional-Replace">Unconditional Replace</a></td>
+    <td>Replacing all matches for a string.</td>
+  </tr>
+  <tr>
+    <td><a href="Regexp-Replace.html#Regexp-Replace">Regexp Replace</a></td>
+    <td>Replacing all matches for a regexp.</td>
+  </tr>
+  <tr>
+    <td><a href="Replacement-and-Case.html#Replacement-and-Case">Replacement and Case</a></td>
+    <td>How replacements preserve case of letters.</td>
+  </tr>
+  <tr>
+    <td><a href="Query-Replace.html#Query-Replace">Query Replace</a></td>
+    <td>How to use querying.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Commands for Fixing Typos
+
+  </th></tr>
+  <tr>
+    <td><a href="Undo.html#Undo">Undo</a></td>
+    <td>The Undo commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Transpose.html#Transpose">Transpose</a></td>
+    <td>Exchanging two characters, words, lines, lists...</td>
+  </tr>
+  <tr>
+    <td><a href="Fixing-Case.html#Fixing-Case">Fixing Case</a></td>
+    <td>Correcting case of last word entered.</td>
+  </tr>
+  <tr>
+    <td><a href="Spelling.html#Spelling">Spelling</a></td>
+    <td>Apply spelling checker to a word, or a whole file.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Keyboard Macros
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Keyboard-Macro.html#Basic-Keyboard-Macro">Basic Keyboard Macro</a></td>
+    <td>Defining and running keyboard macros.</td>
+  </tr>
+  <tr>
+    <td><a href="Keyboard-Macro-Ring.html#Keyboard-Macro-Ring">Keyboard Macro Ring</a></td>
+    <td>Where previous keyboard macros are saved.</td>
+  </tr>
+  <tr>
+    <td><a href="Keyboard-Macro-Counter.html#Keyboard-Macro-Counter">Keyboard Macro Counter</a></td>
+    <td>Inserting incrementing numbers in macros.</td>
+  </tr>
+  <tr>
+    <td><a href="Keyboard-Macro-Query.html#Keyboard-Macro-Query">Keyboard Macro Query</a></td>
+    <td>Making keyboard macros do different things each
+                                time.</td>
+  </tr>
+  <tr>
+    <td><a href="Save-Keyboard-Macro.html#Save-Keyboard-Macro">Save Keyboard Macro</a></td>
+    <td>Giving keyboard macros names; saving them in
+                                files.</td>
+  </tr>
+  <tr>
+    <td><a href="Edit-Keyboard-Macro.html#Edit-Keyboard-Macro">Edit Keyboard Macro</a></td>
+    <td>Editing keyboard macros.</td>
+  </tr>
+  <tr>
+    <td><a href="Keyboard-Macro-Step_002dEdit.html#Keyboard-Macro-Step_002dEdit">Keyboard Macro Step-Edit</a></td>
+    <td>Interactively executing and editing a keyboard
+                                macro.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">File Handling
+
+  </th></tr>
+  <tr>
+    <td><a href="File-Names.html#File-Names">File Names</a></td>
+    <td>How to type and edit file-name arguments.</td>
+  </tr>
+  <tr>
+    <td><a href="Visiting.html#Visiting">Visiting</a></td>
+    <td>Visiting a file prepares Emacs to edit the file.</td>
+  </tr>
+  <tr>
+    <td><a href="Saving.html#Saving">Saving</a></td>
+    <td>Saving makes your changes permanent.</td>
+  </tr>
+  <tr>
+    <td><a href="Reverting.html#Reverting">Reverting</a></td>
+    <td>Reverting cancels all the changes not saved.</td>
+  </tr>
+  <tr>
+    <td><a href="Autorevert.html#Autorevert">Autorevert</a></td>
+    <td>Auto Reverting non-file buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Auto-Save.html#Auto-Save">Auto Save</a></td>
+    <td>Auto Save periodically protects against loss of data.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Aliases.html#File-Aliases">File Aliases</a></td>
+    <td>Handling multiple names for one file.</td>
+  </tr>
+  <tr>
+    <td><a href="Directories.html#Directories">Directories</a></td>
+    <td>Creating, deleting, and listing file directories.</td>
+  </tr>
+  <tr>
+    <td><a href="Comparing-Files.html#Comparing-Files">Comparing Files</a></td>
+    <td>Finding where two files differ.</td>
+  </tr>
+  <tr>
+    <td><a href="Diff-Mode.html#Diff-Mode">Diff Mode</a></td>
+    <td>Mode for editing file differences.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-File-Ops.html#Misc-File-Ops">Misc File Ops</a></td>
+    <td>Other things you can do on files.</td>
+  </tr>
+  <tr>
+    <td><a href="Compressed-Files.html#Compressed-Files">Compressed Files</a></td>
+    <td>Accessing compressed files.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Archives.html#File-Archives">File Archives</a></td>
+    <td>Operating on tar, zip, jar etc. archive files.</td>
+  </tr>
+  <tr>
+    <td><a href="Remote-Files.html#Remote-Files">Remote Files</a></td>
+    <td>Accessing files on other machines.</td>
+  </tr>
+  <tr>
+    <td><a href="Quoted-File-Names.html#Quoted-File-Names">Quoted File Names</a></td>
+    <td>Quoting special characters in file names.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Name-Cache.html#File-Name-Cache">File Name Cache</a></td>
+    <td>Completion against a list of files you often use.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Conveniences.html#File-Conveniences">File Conveniences</a></td>
+    <td>Convenience Features for Finding Files.</td>
+  </tr>
+  <tr>
+    <td><a href="Filesets.html#Filesets">Filesets</a></td>
+    <td>Handling sets of files.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Saving Files
+
+  </th></tr>
+  <tr>
+    <td><a href="Save-Commands.html#Save-Commands">Save Commands</a></td>
+    <td>Commands for saving files.</td>
+  </tr>
+  <tr>
+    <td><a href="Backup.html#Backup">Backup</a></td>
+    <td>How Emacs saves the old version of your file.</td>
+  </tr>
+  <tr>
+    <td><a href="Customize-Save.html#Customize-Save">Customize Save</a></td>
+    <td>Customizing the saving of files.</td>
+  </tr>
+  <tr>
+    <td><a href="Interlocking.html#Interlocking">Interlocking</a></td>
+    <td>How Emacs protects against simultaneous editing
+                          of one file by two users.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Shadowing.html#File-Shadowing">File Shadowing</a></td>
+    <td>Copying files to "shadows" automatically.</td>
+  </tr>
+  <tr>
+    <td><a href="Time-Stamps.html#Time-Stamps">Time Stamps</a></td>
+    <td>Emacs can update time stamps on saved files.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Backup Files
+
+  </th></tr>
+  <tr>
+    <td><a href="Backup-Names.html#Backup-Names">Backup Names</a></td>
+    <td>How backup files are named.</td>
+  </tr>
+  <tr>
+    <td><a href="Backup-Deletion.html#Backup-Deletion">Backup Deletion</a></td>
+    <td>Emacs deletes excess numbered backups.</td>
+  </tr>
+  <tr>
+    <td><a href="Backup-Copying.html#Backup-Copying">Backup Copying</a></td>
+    <td>Backups can be made by copying or renaming.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Auto Reverting Non-File Buffers
+
+  </th></tr>
+  <tr>
+    <td><a href="Auto-Reverting-the-Buffer-Menu.html#Auto-Reverting-the-Buffer-Menu">Auto Reverting the Buffer Menu</a></td>
+    <td>Auto Revert of the Buffer Menu.</td>
+  </tr>
+  <tr>
+    <td><a href="Auto-Reverting-Dired.html#Auto-Reverting-Dired">Auto Reverting Dired</a></td>
+    <td>Auto Revert of Dired buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Supporting-additional-buffers.html#Supporting-additional-buffers">Supporting additional buffers</a></td>
+    <td>How to add more Auto Revert support.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Auto-Saving: Protection Against Disasters
+
+  </th></tr>
+  <tr>
+    <td><a href="Auto-Save-Files.html#Auto-Save-Files">Auto Save Files</a></td>
+    <td>The file where auto-saved changes are
+                          actually made until you save the file.</td>
+  </tr>
+  <tr>
+    <td><a href="Auto-Save-Control.html#Auto-Save-Control">Auto Save Control</a></td>
+    <td>Controlling when and how often to auto-save.</td>
+  </tr>
+  <tr>
+    <td><a href="Recover.html#Recover">Recover</a></td>
+    <td>Recovering text from auto-save files.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Using Multiple Buffers
+
+  </th></tr>
+  <tr>
+    <td><a href="Select-Buffer.html#Select-Buffer">Select Buffer</a></td>
+    <td>Creating a new buffer or reselecting an old one.</td>
+  </tr>
+  <tr>
+    <td><a href="List-Buffers.html#List-Buffers">List Buffers</a></td>
+    <td>Getting a list of buffers that exist.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-Buffer.html#Misc-Buffer">Misc Buffer</a></td>
+    <td>Renaming; changing read-onlyness; copying text.</td>
+  </tr>
+  <tr>
+    <td><a href="Kill-Buffer.html#Kill-Buffer">Kill Buffer</a></td>
+    <td>Killing buffers you no longer need.</td>
+  </tr>
+  <tr>
+    <td><a href="Several-Buffers.html#Several-Buffers">Several Buffers</a></td>
+    <td>How to go through the list of all buffers
+                          and operate variously on several of them.</td>
+  </tr>
+  <tr>
+    <td><a href="Indirect-Buffers.html#Indirect-Buffers">Indirect Buffers</a></td>
+    <td>An indirect buffer shares the text of another buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Buffer-Convenience.html#Buffer-Convenience">Buffer Convenience</a></td>
+    <td>Convenience and customization features for
+                          buffer handling.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Convenience Features and Customization of Buffer Handling
+
+  </th></tr>
+  <tr>
+    <td><a href="Uniquify.html#Uniquify">Uniquify</a></td>
+    <td>Making buffer names unique with directory parts.</td>
+  </tr>
+  <tr>
+    <td><a href="Iswitchb.html#Iswitchb">Iswitchb</a></td>
+    <td>Switching between buffers with substrings.</td>
+  </tr>
+  <tr>
+    <td><a href="Buffer-Menus.html#Buffer-Menus">Buffer Menus</a></td>
+    <td>Configurable buffer menu.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Multiple Windows
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Window.html#Basic-Window">Basic Window</a></td>
+    <td>Introduction to Emacs windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Split-Window.html#Split-Window">Split Window</a></td>
+    <td>New windows are made by splitting existing windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-Window.html#Other-Window">Other Window</a></td>
+    <td>Moving to another window or doing something to it.</td>
+  </tr>
+  <tr>
+    <td><a href="Pop-Up-Window.html#Pop-Up-Window">Pop Up Window</a></td>
+    <td>Finding a file or buffer in another window.</td>
+  </tr>
+  <tr>
+    <td><a href="Change-Window.html#Change-Window">Change Window</a></td>
+    <td>Deleting windows and changing their sizes.</td>
+  </tr>
+  <tr>
+    <td><a href="Displaying-Buffers.html#Displaying-Buffers">Displaying Buffers</a></td>
+    <td>How Emacs picks a window for displaying a buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Window-Convenience.html#Window-Convenience">Window Convenience</a></td>
+    <td>Convenience functions for window handling.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Displaying a Buffer in a Window
+
+  </th></tr>
+  <tr>
+    <td><a href="Window-Choice.html#Window-Choice">Window Choice</a></td>
+    <td>How <code>display-buffer</code> works.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Frames and Graphical Displays
+
+  </th></tr>
+  <tr>
+    <td><a href="Mouse-Commands.html#Mouse-Commands">Mouse Commands</a></td>
+    <td>Moving, cutting, and pasting, with the mouse.</td>
+  </tr>
+  <tr>
+    <td><a href="Word-and-Line-Mouse.html#Word-and-Line-Mouse">Word and Line Mouse</a></td>
+    <td>Mouse commands for selecting whole words or lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Mouse-References.html#Mouse-References">Mouse References</a></td>
+    <td>Using the mouse to select an item from a list.</td>
+  </tr>
+  <tr>
+    <td><a href="Menu-Mouse-Clicks.html#Menu-Mouse-Clicks">Menu Mouse Clicks</a></td>
+    <td>Mouse clicks that bring up menus.</td>
+  </tr>
+  <tr>
+    <td><a href="Mode-Line-Mouse.html#Mode-Line-Mouse">Mode Line Mouse</a></td>
+    <td>Mouse clicks on the mode line.</td>
+  </tr>
+  <tr>
+    <td><a href="Creating-Frames.html#Creating-Frames">Creating Frames</a></td>
+    <td>Creating additional Emacs frames with various contents.</td>
+  </tr>
+  <tr>
+    <td><a href="Frame-Commands.html#Frame-Commands">Frame Commands</a></td>
+    <td>Iconifying, deleting, and switching frames.</td>
+  </tr>
+  <tr>
+    <td><a href="Fonts.html#Fonts">Fonts</a></td>
+    <td>Changing the frame font.</td>
+  </tr>
+  <tr>
+    <td><a href="Speedbar.html#Speedbar">Speedbar</a></td>
+    <td>How to make and use a speedbar frame.</td>
+  </tr>
+  <tr>
+    <td><a href="Multiple-Displays.html#Multiple-Displays">Multiple Displays</a></td>
+    <td>How one Emacs instance can talk to several displays.</td>
+  </tr>
+  <tr>
+    <td><a href="Frame-Parameters.html#Frame-Parameters">Frame Parameters</a></td>
+    <td>Changing the colors and other modes of frames.</td>
+  </tr>
+  <tr>
+    <td><a href="Scroll-Bars.html#Scroll-Bars">Scroll Bars</a></td>
+    <td>How to enable and disable scroll bars; how to use them.</td>
+  </tr>
+  <tr>
+    <td><a href="Drag-and-Drop.html#Drag-and-Drop">Drag and Drop</a></td>
+    <td>Using drag and drop to open files and insert text.</td>
+  </tr>
+  <tr>
+    <td><a href="Menu-Bars.html#Menu-Bars">Menu Bars</a></td>
+    <td>Enabling and disabling the menu bar.</td>
+  </tr>
+  <tr>
+    <td><a href="Tool-Bars.html#Tool-Bars">Tool Bars</a></td>
+    <td>Enabling and disabling the tool bar.</td>
+  </tr>
+  <tr>
+    <td><a href="Dialog-Boxes.html#Dialog-Boxes">Dialog Boxes</a></td>
+    <td>Controlling use of dialog boxes.</td>
+  </tr>
+  <tr>
+    <td><a href="Tooltips.html#Tooltips">Tooltips</a></td>
+    <td>Displaying information at the current mouse position.</td>
+  </tr>
+  <tr>
+    <td><a href="Mouse-Avoidance.html#Mouse-Avoidance">Mouse Avoidance</a></td>
+    <td>Preventing the mouse pointer from obscuring text.</td>
+  </tr>
+  <tr>
+    <td><a href="Non_002dWindow-Terminals.html#Non_002dWindow-Terminals">Non-Window Terminals</a></td>
+    <td>Multiple frames on terminals that show only one.</td>
+  </tr>
+  <tr>
+    <td><a href="Text_002dOnly-Mouse.html#Text_002dOnly-Mouse">Text-Only Mouse</a></td>
+    <td>Using the mouse in text terminals.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">International Character Set Support
+
+  </th></tr>
+  <tr>
+    <td><a href="International-Chars.html#International-Chars">International Chars</a></td>
+    <td>Basic concepts of multibyte characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Disabling-Multibyte.html#Disabling-Multibyte">Disabling Multibyte</a></td>
+    <td>Controlling whether to use multibyte characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Language-Environments.html#Language-Environments">Language Environments</a></td>
+    <td>Setting things up for the language you use.</td>
+  </tr>
+  <tr>
+    <td><a href="Input-Methods.html#Input-Methods">Input Methods</a></td>
+    <td>Entering text characters not on your keyboard.</td>
+  </tr>
+  <tr>
+    <td><a href="Select-Input-Method.html#Select-Input-Method">Select Input Method</a></td>
+    <td>Specifying your choice of input methods.</td>
+  </tr>
+  <tr>
+    <td><a href="Coding-Systems.html#Coding-Systems">Coding Systems</a></td>
+    <td>Character set conversion when you read and
+                              write files, and so on.</td>
+  </tr>
+  <tr>
+    <td><a href="Recognize-Coding.html#Recognize-Coding">Recognize Coding</a></td>
+    <td>How Emacs figures out which conversion to use.</td>
+  </tr>
+  <tr>
+    <td><a href="Specify-Coding.html#Specify-Coding">Specify Coding</a></td>
+    <td>Specifying a file's coding system explicitly.</td>
+  </tr>
+  <tr>
+    <td><a href="Output-Coding.html#Output-Coding">Output Coding</a></td>
+    <td>Choosing coding systems for output.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Coding.html#Text-Coding">Text Coding</a></td>
+    <td>Choosing conversion to use for file text.</td>
+  </tr>
+  <tr>
+    <td><a href="Communication-Coding.html#Communication-Coding">Communication Coding</a></td>
+    <td>Coding systems for interprocess communication.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Name-Coding.html#File-Name-Coding">File Name Coding</a></td>
+    <td>Coding systems for file <em>names</em>.</td>
+  </tr>
+  <tr>
+    <td><a href="Terminal-Coding.html#Terminal-Coding">Terminal Coding</a></td>
+    <td>Specifying coding systems for converting
+                              terminal input and output.</td>
+  </tr>
+  <tr>
+    <td><a href="Fontsets.html#Fontsets">Fontsets</a></td>
+    <td>Fontsets are collections of fonts
+                              that cover the whole spectrum of characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Defining-Fontsets.html#Defining-Fontsets">Defining Fontsets</a></td>
+    <td>Defining a new fontset.</td>
+  </tr>
+  <tr>
+    <td><a href="Modifying-Fontsets.html#Modifying-Fontsets">Modifying Fontsets</a></td>
+    <td>Modifying an existing fontset.</td>
+  </tr>
+  <tr>
+    <td><a href="Undisplayable-Characters.html#Undisplayable-Characters">Undisplayable Characters</a></td>
+    <td>When characters don't display.</td>
+  </tr>
+  <tr>
+    <td><a href="Unibyte-Mode.html#Unibyte-Mode">Unibyte Mode</a></td>
+    <td>You can pick one European character set
+                              to use without multibyte characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Charsets.html#Charsets">Charsets</a></td>
+    <td>How Emacs groups its internal character codes.</td>
+  </tr>
+  <tr>
+    <td><a href="Bidirectional-Editing.html#Bidirectional-Editing">Bidirectional Editing</a></td>
+    <td>Support for right-to-left scripts.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Major and Minor Modes
+
+  </th></tr>
+  <tr>
+    <td><a href="Major-Modes.html#Major-Modes">Major Modes</a></td>
+    <td>Text mode vs. Lisp mode vs. C mode...</td>
+  </tr>
+  <tr>
+    <td><a href="Minor-Modes.html#Minor-Modes">Minor Modes</a></td>
+    <td>Each minor mode is a feature you can turn on
+                          independently of any others.</td>
+  </tr>
+  <tr>
+    <td><a href="Choosing-Modes.html#Choosing-Modes">Choosing Modes</a></td>
+    <td>How modes are chosen when visiting files.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Indentation
+
+  </th></tr>
+  <tr>
+    <td><a href="Indentation-Commands.html#Indentation-Commands">Indentation Commands</a></td>
+    <td>More commands for performing indentation.</td>
+  </tr>
+  <tr>
+    <td><a href="Tab-Stops.html#Tab-Stops">Tab Stops</a></td>
+    <td>Stop points for indentation in Text modes.</td>
+  </tr>
+  <tr>
+    <td><a href="Just-Spaces.html#Just-Spaces">Just Spaces</a></td>
+    <td>Using only space characters for indentation.</td>
+  </tr>
+  <tr>
+    <td><a href="Indent-Convenience.html#Indent-Convenience">Indent Convenience</a></td>
+    <td>Optional indentation features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Commands for Human Languages
+
+  </th></tr>
+  <tr>
+    <td><a href="Words.html#Words">Words</a></td>
+    <td>Moving over and killing words.</td>
+  </tr>
+  <tr>
+    <td><a href="Sentences.html#Sentences">Sentences</a></td>
+    <td>Moving over and killing sentences.</td>
+  </tr>
+  <tr>
+    <td><a href="Paragraphs.html#Paragraphs">Paragraphs</a></td>
+    <td>Moving over paragraphs.</td>
+  </tr>
+  <tr>
+    <td><a href="Pages.html#Pages">Pages</a></td>
+    <td>Moving over pages.</td>
+  </tr>
+  <tr>
+    <td><a href="Filling.html#Filling">Filling</a></td>
+    <td>Filling or justifying text.</td>
+  </tr>
+  <tr>
+    <td><a href="Case.html#Case">Case</a></td>
+    <td>Changing the case of text.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Mode.html#Text-Mode">Text Mode</a></td>
+    <td>The major modes for editing text files.</td>
+  </tr>
+  <tr>
+    <td><a href="Outline-Mode.html#Outline-Mode">Outline Mode</a></td>
+    <td>Editing outlines.</td>
+  </tr>
+  <tr>
+    <td><a href="Org-Mode.html#Org-Mode">Org Mode</a></td>
+    <td>The Emacs organizer.</td>
+  </tr>
+  <tr>
+    <td><a href="TeX-Mode.html#TeX-Mode">TeX Mode</a></td>
+    <td>Editing TeX and LaTeX files.</td>
+  </tr>
+  <tr>
+    <td><a href="HTML-Mode.html#HTML-Mode">HTML Mode</a></td>
+    <td>Editing HTML and SGML files.</td>
+  </tr>
+  <tr>
+    <td><a href="Nroff-Mode.html#Nroff-Mode">Nroff Mode</a></td>
+    <td>Editing input to the nroff formatter.</td>
+  </tr>
+  <tr>
+    <td><a href="Enriched-Text.html#Enriched-Text">Enriched Text</a></td>
+    <td>Editing text "enriched" with fonts, colors, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Based-Tables.html#Text-Based-Tables">Text Based Tables</a></td>
+    <td>Commands for editing text-based tables.</td>
+  </tr>
+  <tr>
+    <td><a href="Two_002dColumn.html#Two_002dColumn">Two-Column</a></td>
+    <td>Splitting text columns into separate windows.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Filling Text
+
+  </th></tr>
+  <tr>
+    <td><a href="Auto-Fill.html#Auto-Fill">Auto Fill</a></td>
+    <td>Auto Fill mode breaks long lines automatically.</td>
+  </tr>
+  <tr>
+    <td><a href="Fill-Commands.html#Fill-Commands">Fill Commands</a></td>
+    <td>Commands to refill paragraphs and center lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Fill-Prefix.html#Fill-Prefix">Fill Prefix</a></td>
+    <td>Filling paragraphs that are indented
+                          or in a comment, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Adaptive-Fill.html#Adaptive-Fill">Adaptive Fill</a></td>
+    <td>How Emacs can determine the fill prefix automatically.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Outline Mode
+
+  </th></tr>
+  <tr>
+    <td><a href="Outline-Format.html#Outline-Format">Outline Format</a></td>
+    <td>What the text of an outline looks like.</td>
+  </tr>
+  <tr>
+    <td><a href="Outline-Motion.html#Outline-Motion">Outline Motion</a></td>
+    <td>Special commands for moving through outlines.</td>
+  </tr>
+  <tr>
+    <td><a href="Outline-Visibility.html#Outline-Visibility">Outline Visibility</a></td>
+    <td>Commands to control what is visible.</td>
+  </tr>
+  <tr>
+    <td><a href="Outline-Views.html#Outline-Views">Outline Views</a></td>
+    <td>Outlines and multiple views.</td>
+  </tr>
+  <tr>
+    <td><a href="Foldout.html#Foldout">Foldout</a></td>
+    <td>Folding means zooming in on outlines.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Org Mode
+
+  </th></tr>
+  <tr>
+    <td><a href="Org-Organizer.html#Org-Organizer">Org Organizer</a></td>
+    <td>Managing TODO lists and agendas.</td>
+  </tr>
+  <tr>
+    <td><a href="Org-Authoring.html#Org-Authoring">Org Authoring</a></td>
+    <td>Exporting Org buffers to various formats.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">TeX Mode
+
+  </th></tr>
+  <tr>
+    <td><a href="TeX-Editing.html#TeX-Editing">TeX Editing</a></td>
+    <td>Special commands for editing in TeX mode.</td>
+  </tr>
+  <tr>
+    <td><a href="LaTeX-Editing.html#LaTeX-Editing">LaTeX Editing</a></td>
+    <td>Additional commands for LaTeX input files.</td>
+  </tr>
+  <tr>
+    <td><a href="TeX-Print.html#TeX-Print">TeX Print</a></td>
+    <td>Commands for printing part of a file with TeX.</td>
+  </tr>
+  <tr>
+    <td><a href="TeX-Misc.html#TeX-Misc">TeX Misc</a></td>
+    <td>Customization of TeX mode, and related features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Enriched Text
+
+  </th></tr>
+  <tr>
+    <td><a href="Enriched-Mode.html#Enriched-Mode">Enriched Mode</a></td>
+    <td>Entering and exiting Enriched mode.</td>
+  </tr>
+  <tr>
+    <td><a href="Hard-and-Soft-Newlines.html#Hard-and-Soft-Newlines">Hard and Soft Newlines</a></td>
+    <td>There are two different kinds of newlines.</td>
+  </tr>
+  <tr>
+    <td><a href="Editing-Format-Info.html#Editing-Format-Info">Editing Format Info</a></td>
+    <td>How to edit text properties.</td>
+  </tr>
+  <tr>
+    <td><a href="Enriched-Faces.html#Enriched-Faces">Enriched Faces</a></td>
+    <td>Bold, italic, underline, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Enriched-Indentation.html#Enriched-Indentation">Enriched Indentation</a></td>
+    <td>Changing the left and right margins.</td>
+  </tr>
+  <tr>
+    <td><a href="Enriched-Justification.html#Enriched-Justification">Enriched Justification</a></td>
+    <td>Centering, setting text flush with the
+                              left or right margin, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Enriched-Properties.html#Enriched-Properties">Enriched Properties</a></td>
+    <td>The "special" text properties submenu.
+<!-- The automatic texinfo menu update inserts some duplicate items here -->
+<!-- (faces, colors, indentation, justification, properties), because -->
+<!-- they are listed in two menus.  But we already have them above, no -->
+<!-- need to list them twice. -->
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Editing Text-based Tables
+
+  </th></tr>
+  <tr>
+    <td><a href="Table-Definition.html#Table-Definition">Table Definition</a></td>
+    <td>What is a text based table.</td>
+  </tr>
+  <tr>
+    <td><a href="Table-Creation.html#Table-Creation">Table Creation</a></td>
+    <td>How to create a table.</td>
+  </tr>
+  <tr>
+    <td><a href="Table-Recognition.html#Table-Recognition">Table Recognition</a></td>
+    <td>How to activate and deactivate tables.</td>
+  </tr>
+  <tr>
+    <td><a href="Cell-Commands.html#Cell-Commands">Cell Commands</a></td>
+    <td>Cell-oriented commands in a table.</td>
+  </tr>
+  <tr>
+    <td><a href="Cell-Justification.html#Cell-Justification">Cell Justification</a></td>
+    <td>Justifying cell contents.</td>
+  </tr>
+  <tr>
+    <td><a href="Table-Rows-and-Columns.html#Table-Rows-and-Columns">Table Rows and Columns</a></td>
+    <td>Inserting and deleting rows and columns.</td>
+  </tr>
+  <tr>
+    <td><a href="Table-Conversion.html#Table-Conversion">Table Conversion</a></td>
+    <td>Converting between plain text and tables.</td>
+  </tr>
+  <tr>
+    <td><a href="Table-Misc.html#Table-Misc">Table Misc</a></td>
+    <td>Table miscellany.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Editing Programs
+
+  </th></tr>
+  <tr>
+    <td><a href="Program-Modes.html#Program-Modes">Program Modes</a></td>
+    <td>Major modes for editing programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Defuns.html#Defuns">Defuns</a></td>
+    <td>Commands to operate on major top-level parts
+                          of a program.</td>
+  </tr>
+  <tr>
+    <td><a href="Program-Indent.html#Program-Indent">Program Indent</a></td>
+    <td>Adjusting indentation to show the nesting.</td>
+  </tr>
+  <tr>
+    <td><a href="Parentheses.html#Parentheses">Parentheses</a></td>
+    <td>Commands that operate on parentheses.</td>
+  </tr>
+  <tr>
+    <td><a href="Comments.html#Comments">Comments</a></td>
+    <td>Inserting, killing, and aligning comments.</td>
+  </tr>
+  <tr>
+    <td><a href="Documentation.html#Documentation">Documentation</a></td>
+    <td>Getting documentation of functions you plan to call.</td>
+  </tr>
+  <tr>
+    <td><a href="Hideshow.html#Hideshow">Hideshow</a></td>
+    <td>Displaying blocks selectively.</td>
+  </tr>
+  <tr>
+    <td><a href="Symbol-Completion.html#Symbol-Completion">Symbol Completion</a></td>
+    <td>Completion on symbol names of your program or language.</td>
+  </tr>
+  <tr>
+    <td><a href="Glasses.html#Glasses">Glasses</a></td>
+    <td>Making identifiersLikeThis more readable.</td>
+  </tr>
+  <tr>
+    <td><a href="Semantic.html#Semantic">Semantic</a></td>
+    <td>Suite of editing tools based on source code parsing.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-for-Programs.html#Misc-for-Programs">Misc for Programs</a></td>
+    <td>Other Emacs features useful for editing programs.</td>
+  </tr>
+  <tr>
+    <td><a href="C-Modes.html#C-Modes">C Modes</a></td>
+    <td>Special commands of C, C++, Objective-C,
+                          Java, IDL, Pike and AWK modes.</td>
+  </tr>
+  <tr>
+    <td><a href="Asm-Mode.html#Asm-Mode">Asm Mode</a></td>
+    <td>Asm mode and its special features.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran.html#Fortran">Fortran</a></td>
+    <td>Fortran mode and its special features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Top-Level Definitions, or Defuns
+
+  </th></tr>
+  <tr>
+    <td><a href="Left-Margin-Paren.html#Left-Margin-Paren">Left Margin Paren</a></td>
+    <td>An open-paren or similar opening delimiter
+                          starts a defun if it is at the left margin.</td>
+  </tr>
+  <tr>
+    <td><a href="Moving-by-Defuns.html#Moving-by-Defuns">Moving by Defuns</a></td>
+    <td>Commands to move over or mark a major definition.</td>
+  </tr>
+  <tr>
+    <td><a href="Imenu.html#Imenu">Imenu</a></td>
+    <td>Making buffer indexes as menus.</td>
+  </tr>
+  <tr>
+    <td><a href="Which-Function.html#Which-Function">Which Function</a></td>
+    <td>Which Function mode shows which function you are in.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Indentation for Programs
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Indent.html#Basic-Indent">Basic Indent</a></td>
+    <td>Indenting a single line.</td>
+  </tr>
+  <tr>
+    <td><a href="Multi_002dline-Indent.html#Multi_002dline-Indent">Multi-line Indent</a></td>
+    <td>Commands to reindent many lines at once.</td>
+  </tr>
+  <tr>
+    <td><a href="Lisp-Indent.html#Lisp-Indent">Lisp Indent</a></td>
+    <td>Specifying how each Lisp function should be indented.</td>
+  </tr>
+  <tr>
+    <td><a href="C-Indent.html#C-Indent">C Indent</a></td>
+    <td>Extra features for indenting C and related modes.</td>
+  </tr>
+  <tr>
+    <td><a href="Custom-C-Indent.html#Custom-C-Indent">Custom C Indent</a></td>
+    <td>Controlling indentation style for C and related modes.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Commands for Editing with Parentheses
+
+  </th></tr>
+  <tr>
+    <td><a href="Expressions.html#Expressions">Expressions</a></td>
+    <td>Expressions with balanced parentheses.</td>
+  </tr>
+  <tr>
+    <td><a href="Moving-by-Parens.html#Moving-by-Parens">Moving by Parens</a></td>
+    <td>Commands for moving up, down and across
+                          in the structure of parentheses.</td>
+  </tr>
+  <tr>
+    <td><a href="Matching.html#Matching">Matching</a></td>
+    <td>Insertion of a close-delimiter flashes matching open.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Manipulating Comments
+
+  </th></tr>
+  <tr>
+    <td><a href="Comment-Commands.html#Comment-Commands">Comment Commands</a></td>
+    <td>Inserting, killing, and aligning comments.</td>
+  </tr>
+  <tr>
+    <td><a href="Multi_002dLine-Comments.html#Multi_002dLine-Comments">Multi-Line Comments</a></td>
+    <td>Commands for adding and editing multi-line comments.</td>
+  </tr>
+  <tr>
+    <td><a href="Options-for-Comments.html#Options-for-Comments">Options for Comments</a></td>
+    <td>Customizing the comment features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Documentation Lookup
+
+  </th></tr>
+  <tr>
+    <td><a href="Info-Lookup.html#Info-Lookup">Info Lookup</a></td>
+    <td>Looking up library functions and commands in Info files.</td>
+  </tr>
+  <tr>
+    <td><a href="Man-Page.html#Man-Page">Man Page</a></td>
+    <td>Looking up man pages of library functions and commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Lisp-Doc.html#Lisp-Doc">Lisp Doc</a></td>
+    <td>Looking up Emacs Lisp functions, etc.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">C and Related Modes
+
+  </th></tr>
+  <tr>
+    <td><a href="Motion-in-C.html#Motion-in-C">Motion in C</a></td>
+    <td>Commands to move by C statements, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Electric-C.html#Electric-C">Electric C</a></td>
+    <td>Colon and other chars can automatically reindent.</td>
+  </tr>
+  <tr>
+    <td><a href="Hungry-Delete.html#Hungry-Delete">Hungry Delete</a></td>
+    <td>A more powerful DEL command.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-C-Commands.html#Other-C-Commands">Other C Commands</a></td>
+    <td>Filling comments, viewing expansion of macros,
+                          and other neat features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Fortran Mode
+
+  </th></tr>
+  <tr>
+    <td><a href="Fortran-Motion.html#Fortran-Motion">Fortran Motion</a></td>
+    <td>Moving point by statements or subprograms.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran-Indent.html#Fortran-Indent">Fortran Indent</a></td>
+    <td>Indentation commands for Fortran.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran-Comments.html#Fortran-Comments">Fortran Comments</a></td>
+    <td>Inserting and aligning comments.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran-Autofill.html#Fortran-Autofill">Fortran Autofill</a></td>
+    <td>Auto fill support for Fortran.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran-Columns.html#Fortran-Columns">Fortran Columns</a></td>
+    <td>Measuring columns for valid Fortran.</td>
+  </tr>
+  <tr>
+    <td><a href="Fortran-Abbrev.html#Fortran-Abbrev">Fortran Abbrev</a></td>
+    <td>Built-in abbrevs for Fortran keywords.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Fortran Indentation
+
+  </th></tr>
+  <tr>
+    <td><a href="ForIndent-Commands.html#ForIndent-Commands">ForIndent Commands</a></td>
+    <td>Commands for indenting and filling Fortran.</td>
+  </tr>
+  <tr>
+    <td><a href="ForIndent-Cont.html#ForIndent-Cont">ForIndent Cont</a></td>
+    <td>How continuation lines indent.</td>
+  </tr>
+  <tr>
+    <td><a href="ForIndent-Num.html#ForIndent-Num">ForIndent Num</a></td>
+    <td>How line numbers auto-indent.</td>
+  </tr>
+  <tr>
+    <td><a href="ForIndent-Conv.html#ForIndent-Conv">ForIndent Conv</a></td>
+    <td>Conventions you must obey to avoid trouble.</td>
+  </tr>
+  <tr>
+    <td><a href="ForIndent-Vars.html#ForIndent-Vars">ForIndent Vars</a></td>
+    <td>Variables controlling Fortran indent style.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Compiling and Testing Programs
+
+  </th></tr>
+  <tr>
+    <td><a href="Compilation.html#Compilation">Compilation</a></td>
+    <td>Compiling programs in languages other
+                          than Lisp (C, Pascal, etc.).</td>
+  </tr>
+  <tr>
+    <td><a href="Compilation-Mode.html#Compilation-Mode">Compilation Mode</a></td>
+    <td>The mode for visiting compiler errors.</td>
+  </tr>
+  <tr>
+    <td><a href="Compilation-Shell.html#Compilation-Shell">Compilation Shell</a></td>
+    <td>Customizing your shell properly
+                          for use in the compilation buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Grep-Searching.html#Grep-Searching">Grep Searching</a></td>
+    <td>Searching with grep.</td>
+  </tr>
+  <tr>
+    <td><a href="Flymake.html#Flymake">Flymake</a></td>
+    <td>Finding syntax errors on the fly.</td>
+  </tr>
+  <tr>
+    <td><a href="Debuggers.html#Debuggers">Debuggers</a></td>
+    <td>Running symbolic debuggers for non-Lisp programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Executing-Lisp.html#Executing-Lisp">Executing Lisp</a></td>
+    <td>Various modes for editing Lisp programs,
+                          with different facilities for running
+                          the Lisp programs.</td>
+  </tr>
+  <tr>
+    <td><a href="Lisp-Libraries.html#Lisp-Libraries">Lisp Libraries</a></td>
+    <td>How Lisp programs are loaded into Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Lisp-Eval.html#Lisp-Eval">Lisp Eval</a></td>
+    <td>Executing a single Lisp expression in Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Lisp-Interaction.html#Lisp-Interaction">Lisp Interaction</a></td>
+    <td>Executing Lisp in an Emacs buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="External-Lisp.html#External-Lisp">External Lisp</a></td>
+    <td>Communicating through Emacs with a separate Lisp.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Running Debuggers Under Emacs
+
+  </th></tr>
+  <tr>
+    <td><a href="Starting-GUD.html#Starting-GUD">Starting GUD</a></td>
+    <td>How to start a debugger subprocess.</td>
+  </tr>
+  <tr>
+    <td><a href="Debugger-Operation.html#Debugger-Operation">Debugger Operation</a></td>
+    <td>Connection between the debugger and source buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Commands-of-GUD.html#Commands-of-GUD">Commands of GUD</a></td>
+    <td>Key bindings for common commands.</td>
+  </tr>
+  <tr>
+    <td><a href="GUD-Customization.html#GUD-Customization">GUD Customization</a></td>
+    <td>Defining your own commands for GUD.</td>
+  </tr>
+  <tr>
+    <td><a href="GDB-Graphical-Interface.html#GDB-Graphical-Interface">GDB Graphical Interface</a></td>
+    <td>An enhanced mode that uses GDB features to
+                          implement a graphical debugging environment.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">GDB Graphical Interface
+
+  </th></tr>
+  <tr>
+    <td><a href="GDB-User-Interface-Layout.html#GDB-User-Interface-Layout">GDB User Interface Layout</a></td>
+    <td>Control the number of displayed buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Source-Buffers.html#Source-Buffers">Source Buffers</a></td>
+    <td>Use the mouse in the fringe/margin to
+                                control your program.</td>
+  </tr>
+  <tr>
+    <td><a href="Breakpoints-Buffer.html#Breakpoints-Buffer">Breakpoints Buffer</a></td>
+    <td>A breakpoint control panel.</td>
+  </tr>
+  <tr>
+    <td><a href="Threads-Buffer.html#Threads-Buffer">Threads Buffer</a></td>
+    <td>Displays your threads.</td>
+  </tr>
+  <tr>
+    <td><a href="Stack-Buffer.html#Stack-Buffer">Stack Buffer</a></td>
+    <td>Select a frame from the call stack.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-GDB-Buffers.html#Other-GDB-Buffers">Other GDB Buffers</a></td>
+    <td>Other buffers for controlling the GDB state.</td>
+  </tr>
+  <tr>
+    <td><a href="Watch-Expressions.html#Watch-Expressions">Watch Expressions</a></td>
+    <td>Monitor variable values in the speedbar.</td>
+  </tr>
+  <tr>
+    <td><a href="Multithreaded-Debugging.html#Multithreaded-Debugging">Multithreaded Debugging</a></td>
+    <td>Debugging programs with several threads.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Maintaining Large Programs
+
+  </th></tr>
+  <tr>
+    <td><a href="Version-Control.html#Version-Control">Version Control</a></td>
+    <td>Using version control systems.</td>
+  </tr>
+  <tr>
+    <td><a href="Change-Log.html#Change-Log">Change Log</a></td>
+    <td>Maintaining a change history for your program.</td>
+  </tr>
+  <tr>
+    <td><a href="Tags.html#Tags">Tags</a></td>
+    <td>Go directly to any function in your program in one
+                          command.  Tags remembers which file it is in.</td>
+  </tr>
+  <tr>
+    <td><a href="EDE.html#EDE">EDE</a></td>
+    <td>An integrated development environment for Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Emerge.html#Emerge">Emerge</a></td>
+    <td>A convenient way of merging two versions of a program.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Version Control
+
+  </th></tr>
+  <tr>
+    <td><a href="Introduction-to-VC.html#Introduction-to-VC">Introduction to VC</a></td>
+    <td>How version control works in general.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Mode-Line.html#VC-Mode-Line">VC Mode Line</a></td>
+    <td>How the mode line shows version control status.</td>
+  </tr>
+  <tr>
+    <td><a href="Basic-VC-Editing.html#Basic-VC-Editing">Basic VC Editing</a></td>
+    <td>How to edit a file under version control.</td>
+  </tr>
+  <tr>
+    <td><a href="Log-Buffer.html#Log-Buffer">Log Buffer</a></td>
+    <td>Features available in log entry buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Registering.html#Registering">Registering</a></td>
+    <td>Putting a file under version control.</td>
+  </tr>
+  <tr>
+    <td><a href="Old-Revisions.html#Old-Revisions">Old Revisions</a></td>
+    <td>Examining and comparing old versions.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Change-Log.html#VC-Change-Log">VC Change Log</a></td>
+    <td>Viewing the VC Change Log.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Undo.html#VC-Undo">VC Undo</a></td>
+    <td>Canceling changes before or after committing.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Directory-Mode.html#VC-Directory-Mode">VC Directory Mode</a></td>
+    <td>Listing files managed by version control.</td>
+  </tr>
+  <tr>
+    <td><a href="Branches.html#Branches">Branches</a></td>
+    <td>Multiple lines of development.</td>
+  </tr>
+  <tr>
+    <td><a href="Miscellaneous-VC.html#Miscellaneous-VC">Miscellaneous VC</a></td>
+    <td>Various other commands and features of VC.</td>
+  </tr>
+  <tr>
+    <td><a href="Customizing-VC.html#Customizing-VC">Customizing VC</a></td>
+    <td>Variables that change VC's behavior.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Introduction to Version Control
+
+  </th></tr>
+  <tr>
+    <td><a href="Why-Version-Control_003f.html#Why-Version-Control_003f">Why Version Control?</a></td>
+    <td>Understanding the problems it addresses.</td>
+  </tr>
+  <tr>
+    <td><a href="Version-Control-Systems.html#Version-Control-Systems">Version Control Systems</a></td>
+    <td>Supported version control back-end systems.</td>
+  </tr>
+  <tr>
+    <td><a href="VCS-Concepts.html#VCS-Concepts">VCS Concepts</a></td>
+    <td>Words and concepts related to version control.</td>
+  </tr>
+  <tr>
+    <td><a href="VCS-Merging.html#VCS-Merging">VCS Merging</a></td>
+    <td>How file conflicts are handled.</td>
+  </tr>
+  <tr>
+    <td><a href="VCS-Changesets.html#VCS-Changesets">VCS Changesets</a></td>
+    <td>How changes are grouped.</td>
+  </tr>
+  <tr>
+    <td><a href="VCS-Repositories.html#VCS-Repositories">VCS Repositories</a></td>
+    <td>Where version control repositories are stored.</td>
+  </tr>
+  <tr>
+    <td><a href="Types-of-Log-File.html#Types-of-Log-File">Types of Log File</a></td>
+    <td>The VCS log in contrast to the ChangeLog.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Basic Editing under Version Control
+
+  </th></tr>
+  <tr>
+    <td><a href="VC-With-A-Merging-VCS.html#VC-With-A-Merging-VCS">VC With A Merging VCS</a></td>
+    <td>Without locking: default mode for CVS.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-With-A-Locking-VCS.html#VC-With-A-Locking-VCS">VC With A Locking VCS</a></td>
+    <td>RCS in its default mode, SCCS, and optionally CVS.</td>
+  </tr>
+  <tr>
+    <td><a href="Advanced-C_002dx-v-v.html#Advanced-C_002dx-v-v">Advanced C-x v v</a></td>
+    <td>Advanced features available with a prefix argument.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">VC Directory Mode
+
+  </th></tr>
+  <tr>
+    <td><a href="VC-Directory-Buffer.html#VC-Directory-Buffer">VC Directory Buffer</a></td>
+    <td>What the buffer looks like and means.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Directory-Commands.html#VC-Directory-Commands">VC Directory Commands</a></td>
+    <td>Commands to use in a VC directory buffer.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Version Control Branches
+
+  </th></tr>
+  <tr>
+    <td><a href="Switching-Branches.html#Switching-Branches">Switching Branches</a></td>
+    <td>How to get to another existing branch.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Pull.html#VC-Pull">VC Pull</a></td>
+    <td>Updating the contents of a branch.</td>
+  </tr>
+  <tr>
+    <td><a href="Merging.html#Merging">Merging</a></td>
+    <td>Transferring changes between branches.</td>
+  </tr>
+  <tr>
+    <td><a href="Creating-Branches.html#Creating-Branches">Creating Branches</a></td>
+    <td>How to start a new branch.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Miscellaneous Commands and Features of VC
+
+  </th></tr>
+  <tr>
+    <td><a href="Change-Logs-and-VC.html#Change-Logs-and-VC">Change Logs and VC</a></td>
+    <td>Generating a change log file from log entries.</td>
+  </tr>
+  <tr>
+    <td><a href="VC-Delete_002fRename.html#VC-Delete_002fRename">VC Delete/Rename</a></td>
+    <td>Deleting and renaming version-controlled files.</td>
+  </tr>
+  <tr>
+    <td><a href="Revision-Tags.html#Revision-Tags">Revision Tags</a></td>
+    <td>Symbolic names for revisions.</td>
+  </tr>
+  <tr>
+    <td><a href="Version-Headers.html#Version-Headers">Version Headers</a></td>
+    <td>Inserting version control headers into working files.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Customizing VC
+
+  </th></tr>
+  <tr>
+    <td><a href="General-VC-Options.html#General-VC-Options">General VC Options</a></td>
+    <td>Options that apply to multiple back ends.</td>
+  </tr>
+  <tr>
+    <td><a href="RCS-and-SCCS.html#RCS-and-SCCS">RCS and SCCS</a></td>
+    <td>Options for RCS and SCCS.</td>
+  </tr>
+  <tr>
+    <td><a href="CVS-Options.html#CVS-Options">CVS Options</a></td>
+    <td>Options for CVS.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Change Logs
+
+  </th></tr>
+  <tr>
+    <td><a href="Change-Log-Commands.html#Change-Log-Commands">Change Log Commands</a></td>
+    <td>Commands for editing change log files.</td>
+  </tr>
+  <tr>
+    <td><a href="Format-of-ChangeLog.html#Format-of-ChangeLog">Format of ChangeLog</a></td>
+    <td>What the change log file looks like.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Tags Tables
+
+  </th></tr>
+  <tr>
+    <td><a href="Tag-Syntax.html#Tag-Syntax">Tag Syntax</a></td>
+    <td>Tag syntax for various types of code and text files.</td>
+  </tr>
+  <tr>
+    <td><a href="Create-Tags-Table.html#Create-Tags-Table">Create Tags Table</a></td>
+    <td>Creating a tags table with <samp><span class="command">etags</span></samp>.</td>
+  </tr>
+  <tr>
+    <td><a href="Etags-Regexps.html#Etags-Regexps">Etags Regexps</a></td>
+    <td>Create arbitrary tags using regular expressions.</td>
+  </tr>
+  <tr>
+    <td><a href="Select-Tags-Table.html#Select-Tags-Table">Select Tags Table</a></td>
+    <td>How to visit a tags table.</td>
+  </tr>
+  <tr>
+    <td><a href="Find-Tag.html#Find-Tag">Find Tag</a></td>
+    <td>Commands to find the definition of a specific tag.</td>
+  </tr>
+  <tr>
+    <td><a href="Tags-Search.html#Tags-Search">Tags Search</a></td>
+    <td>Using a tags table for searching and replacing.</td>
+  </tr>
+  <tr>
+    <td><a href="List-Tags.html#List-Tags">List Tags</a></td>
+    <td>Using tags for completion, and listing them.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Merging Files with Emerge
+
+  </th></tr>
+  <tr>
+    <td><a href="Overview-of-Emerge.html#Overview-of-Emerge">Overview of Emerge</a></td>
+    <td>How to start Emerge.  Basic concepts.</td>
+  </tr>
+  <tr>
+    <td><a href="Submodes-of-Emerge.html#Submodes-of-Emerge">Submodes of Emerge</a></td>
+    <td>Fast mode vs. Edit mode. 
+                          Skip Prefers mode and Auto Advance mode.</td>
+  </tr>
+  <tr>
+    <td><a href="State-of-Difference.html#State-of-Difference">State of Difference</a></td>
+    <td>You do the merge by specifying state A or B
+                          for each difference.</td>
+  </tr>
+  <tr>
+    <td><a href="Merge-Commands.html#Merge-Commands">Merge Commands</a></td>
+    <td>Commands for selecting a difference,
+                          changing states of differences, etc.</td>
+  </tr>
+  <tr>
+    <td><a href="Exiting-Emerge.html#Exiting-Emerge">Exiting Emerge</a></td>
+    <td>What to do when you've finished the merge.</td>
+  </tr>
+  <tr>
+    <td><a href="Combining-in-Emerge.html#Combining-in-Emerge">Combining in Emerge</a></td>
+    <td>How to keep both alternatives for a difference.</td>
+  </tr>
+  <tr>
+    <td><a href="Fine-Points-of-Emerge.html#Fine-Points-of-Emerge">Fine Points of Emerge</a></td>
+    <td>Miscellaneous issues.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Abbrevs
+
+  </th></tr>
+  <tr>
+    <td><a href="Abbrev-Concepts.html#Abbrev-Concepts">Abbrev Concepts</a></td>
+    <td>Fundamentals of defined abbrevs.</td>
+  </tr>
+  <tr>
+    <td><a href="Defining-Abbrevs.html#Defining-Abbrevs">Defining Abbrevs</a></td>
+    <td>Defining an abbrev, so it will expand when typed.</td>
+  </tr>
+  <tr>
+    <td><a href="Expanding-Abbrevs.html#Expanding-Abbrevs">Expanding Abbrevs</a></td>
+    <td>Controlling expansion: prefixes, canceling expansion.</td>
+  </tr>
+  <tr>
+    <td><a href="Editing-Abbrevs.html#Editing-Abbrevs">Editing Abbrevs</a></td>
+    <td>Viewing or editing the entire list of defined abbrevs.</td>
+  </tr>
+  <tr>
+    <td><a href="Saving-Abbrevs.html#Saving-Abbrevs">Saving Abbrevs</a></td>
+    <td>Saving the entire list of abbrevs for another session.</td>
+  </tr>
+  <tr>
+    <td><a href="Dynamic-Abbrevs.html#Dynamic-Abbrevs">Dynamic Abbrevs</a></td>
+    <td>Abbreviations for words already in the buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Dabbrev-Customization.html#Dabbrev-Customization">Dabbrev Customization</a></td>
+    <td>What is a word, for dynamic abbrevs.  Case handling.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Editing Pictures
+
+  </th></tr>
+  <tr>
+    <td><a href="Basic-Picture.html#Basic-Picture">Basic Picture</a></td>
+    <td>Basic concepts and simple commands of Picture Mode.</td>
+  </tr>
+  <tr>
+    <td><a href="Insert-in-Picture.html#Insert-in-Picture">Insert in Picture</a></td>
+    <td>Controlling direction of cursor motion
+                            after "self-inserting" characters.</td>
+  </tr>
+  <tr>
+    <td><a href="Tabs-in-Picture.html#Tabs-in-Picture">Tabs in Picture</a></td>
+    <td>Various features for tab stops and indentation.</td>
+  </tr>
+  <tr>
+    <td><a href="Rectangles-in-Picture.html#Rectangles-in-Picture">Rectangles in Picture</a></td>
+    <td>Clearing and superimposing rectangles.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Dired, the Directory Editor
+
+  </th></tr>
+  <tr>
+    <td><a href="Dired-Enter.html#Dired-Enter">Dired Enter</a></td>
+    <td>How to invoke Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired-Navigation.html#Dired-Navigation">Dired Navigation</a></td>
+    <td>Special motion commands in the Dired buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired-Deletion.html#Dired-Deletion">Dired Deletion</a></td>
+    <td>Deleting files with Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Flagging-Many-Files.html#Flagging-Many-Files">Flagging Many Files</a></td>
+    <td>Flagging files based on their names.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired-Visiting.html#Dired-Visiting">Dired Visiting</a></td>
+    <td>Other file operations through Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Marks-vs-Flags.html#Marks-vs-Flags">Marks vs Flags</a></td>
+    <td>Flagging for deletion vs marking.</td>
+  </tr>
+  <tr>
+    <td><a href="Operating-on-Files.html#Operating-on-Files">Operating on Files</a></td>
+    <td>How to copy, rename, print, compress, etc. 
+                               either one file or several files.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-Commands-in-Dired.html#Shell-Commands-in-Dired">Shell Commands in Dired</a></td>
+    <td>Running a shell command on the marked files.</td>
+  </tr>
+  <tr>
+    <td><a href="Transforming-File-Names.html#Transforming-File-Names">Transforming File Names</a></td>
+    <td>Using patterns to rename multiple files.</td>
+  </tr>
+  <tr>
+    <td><a href="Comparison-in-Dired.html#Comparison-in-Dired">Comparison in Dired</a></td>
+    <td>Running <code>diff</code> by way of Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Subdirectories-in-Dired.html#Subdirectories-in-Dired">Subdirectories in Dired</a></td>
+    <td>Adding subdirectories to the Dired buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Subdir-Switches.html#Subdir-Switches">Subdir Switches</a></td>
+    <td>Subdirectory switches in Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Subdirectory-Motion.html#Subdirectory-Motion">Subdirectory Motion</a></td>
+    <td>Moving across subdirectories, and up and down.</td>
+  </tr>
+  <tr>
+    <td><a href="Hiding-Subdirectories.html#Hiding-Subdirectories">Hiding Subdirectories</a></td>
+    <td>Making subdirectories visible or invisible.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired-Updating.html#Dired-Updating">Dired Updating</a></td>
+    <td>Discarding lines for files of no interest.</td>
+  </tr>
+  <tr>
+    <td><a href="Dired-and-Find.html#Dired-and-Find">Dired and Find</a></td>
+    <td>Using <code>find</code> to choose the files for Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Wdired.html#Wdired">Wdired</a></td>
+    <td>Operating on files by editing the Dired buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Image_002dDired.html#Image_002dDired">Image-Dired</a></td>
+    <td>Viewing image thumbnails in Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-Dired-Features.html#Misc-Dired-Features">Misc Dired Features</a></td>
+    <td>Various other features.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Calendar and the Diary
+
+  </th></tr>
+  <tr>
+    <td><a href="Calendar-Motion.html#Calendar-Motion">Calendar Motion</a></td>
+    <td>Moving through the calendar; selecting a date.</td>
+  </tr>
+  <tr>
+    <td><a href="Scroll-Calendar.html#Scroll-Calendar">Scroll Calendar</a></td>
+    <td>Bringing earlier or later months onto the screen.</td>
+  </tr>
+  <tr>
+    <td><a href="Counting-Days.html#Counting-Days">Counting Days</a></td>
+    <td>How many days are there between two dates?</td>
+  </tr>
+  <tr>
+    <td><a href="General-Calendar.html#General-Calendar">General Calendar</a></td>
+    <td>Exiting or recomputing the calendar.</td>
+  </tr>
+  <tr>
+    <td><a href="Writing-Calendar-Files.html#Writing-Calendar-Files">Writing Calendar Files</a></td>
+    <td>Writing calendars to files of various formats.</td>
+  </tr>
+  <tr>
+    <td><a href="Holidays.html#Holidays">Holidays</a></td>
+    <td>Displaying dates of holidays.</td>
+  </tr>
+  <tr>
+    <td><a href="Sunrise_002fSunset.html#Sunrise_002fSunset">Sunrise/Sunset</a></td>
+    <td>Displaying local times of sunrise and sunset.</td>
+  </tr>
+  <tr>
+    <td><a href="Lunar-Phases.html#Lunar-Phases">Lunar Phases</a></td>
+    <td>Displaying phases of the moon.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-Calendars.html#Other-Calendars">Other Calendars</a></td>
+    <td>Converting dates to other calendar systems.</td>
+  </tr>
+  <tr>
+    <td><a href="Diary.html#Diary">Diary</a></td>
+    <td>Displaying events from your diary.</td>
+  </tr>
+  <tr>
+    <td><a href="Appointments.html#Appointments">Appointments</a></td>
+    <td>Reminders when it's time to do something.</td>
+  </tr>
+  <tr>
+    <td><a href="Importing-Diary.html#Importing-Diary">Importing Diary</a></td>
+    <td>Converting diary events to/from other formats.</td>
+  </tr>
+  <tr>
+    <td><a href="Daylight-Saving.html#Daylight-Saving">Daylight Saving</a></td>
+    <td>How to specify when daylight saving time is active.</td>
+  </tr>
+  <tr>
+    <td><a href="Time-Intervals.html#Time-Intervals">Time Intervals</a></td>
+    <td>Keeping track of time intervals.</td>
+  </tr>
+  <tr>
+    <td><a href="Advanced-Calendar_002fDiary-Usage.html#Advanced-Calendar_002fDiary-Usage">Advanced Calendar/Diary Usage</a></td>
+    <td>Advanced Calendar/Diary customization.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Movement in the Calendar
+
+  </th></tr>
+  <tr>
+    <td><a href="Calendar-Unit-Motion.html#Calendar-Unit-Motion">Calendar Unit Motion</a></td>
+    <td>Moving by days, weeks, months, and years.</td>
+  </tr>
+  <tr>
+    <td><a href="Move-to-Beginning-or-End.html#Move-to-Beginning-or-End">Move to Beginning or End</a></td>
+    <td>Moving to start/end of weeks, months, and years.</td>
+  </tr>
+  <tr>
+    <td><a href="Specified-Dates.html#Specified-Dates">Specified Dates</a></td>
+    <td>Moving to the current date or another
+                                specific date.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Conversion To and From Other Calendars
+
+  </th></tr>
+  <tr>
+    <td><a href="Calendar-Systems.html#Calendar-Systems">Calendar Systems</a></td>
+    <td>The calendars Emacs understands
+                             (aside from Gregorian).</td>
+  </tr>
+  <tr>
+    <td><a href="To-Other-Calendar.html#To-Other-Calendar">To Other Calendar</a></td>
+    <td>Converting the selected date to various calendars.</td>
+  </tr>
+  <tr>
+    <td><a href="From-Other-Calendar.html#From-Other-Calendar">From Other Calendar</a></td>
+    <td>Moving to a date specified in another calendar.</td>
+  </tr>
+  <tr>
+    <td><a href="Mayan-Calendar.html#Mayan-Calendar">Mayan Calendar</a></td>
+    <td>Moving to a date specified in a Mayan calendar.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Diary
+
+  </th></tr>
+  <tr>
+    <td><a href="Displaying-the-Diary.html#Displaying-the-Diary">Displaying the Diary</a></td>
+    <td>Viewing diary entries and associated calendar dates.</td>
+  </tr>
+  <tr>
+    <td><a href="Format-of-Diary-File.html#Format-of-Diary-File">Format of Diary File</a></td>
+    <td>Entering events in your diary.</td>
+  </tr>
+  <tr>
+    <td><a href="Date-Formats.html#Date-Formats">Date Formats</a></td>
+    <td>Various ways you can specify dates.</td>
+  </tr>
+  <tr>
+    <td><a href="Adding-to-Diary.html#Adding-to-Diary">Adding to Diary</a></td>
+    <td>Commands to create diary entries.</td>
+  </tr>
+  <tr>
+    <td><a href="Special-Diary-Entries.html#Special-Diary-Entries">Special Diary Entries</a></td>
+    <td>Anniversaries, blocks of dates, cyclic entries, etc.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">More advanced features of the Calendar and Diary
+
+  </th></tr>
+  <tr>
+    <td><a href="Calendar-Customizing.html#Calendar-Customizing">Calendar Customizing</a></td>
+    <td>Calendar layout and hooks.</td>
+  </tr>
+  <tr>
+    <td><a href="Holiday-Customizing.html#Holiday-Customizing">Holiday Customizing</a></td>
+    <td>Defining your own holidays.</td>
+  </tr>
+  <tr>
+    <td><a href="Date-Display-Format.html#Date-Display-Format">Date Display Format</a></td>
+    <td>Changing the format.</td>
+  </tr>
+  <tr>
+    <td><a href="Time-Display-Format.html#Time-Display-Format">Time Display Format</a></td>
+    <td>Changing the format.</td>
+  </tr>
+  <tr>
+    <td><a href="Diary-Customizing.html#Diary-Customizing">Diary Customizing</a></td>
+    <td>Defaults you can set.</td>
+  </tr>
+  <tr>
+    <td><a href="Non_002dGregorian-Diary.html#Non_002dGregorian-Diary">Non-Gregorian Diary</a></td>
+    <td>Diary entries based on other calendars.</td>
+  </tr>
+  <tr>
+    <td><a href="Diary-Display.html#Diary-Display">Diary Display</a></td>
+    <td>A choice of ways to display the diary.</td>
+  </tr>
+  <tr>
+    <td><a href="Fancy-Diary-Display.html#Fancy-Diary-Display">Fancy Diary Display</a></td>
+    <td>Sorting diary entries, using included diary files.</td>
+  </tr>
+  <tr>
+    <td><a href="Sexp-Diary-Entries.html#Sexp-Diary-Entries">Sexp Diary Entries</a></td>
+    <td>More flexible diary entries.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Sending Mail
+
+  </th></tr>
+  <tr>
+    <td><a href="Mail-Format.html#Mail-Format">Mail Format</a></td>
+    <td>Format of a mail message.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Headers.html#Mail-Headers">Mail Headers</a></td>
+    <td>Details of some standard mail header fields.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Aliases.html#Mail-Aliases">Mail Aliases</a></td>
+    <td>Abbreviating and grouping mail addresses.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Commands.html#Mail-Commands">Mail Commands</a></td>
+    <td>Special commands for editing mail being composed.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Signature.html#Mail-Signature">Mail Signature</a></td>
+    <td>Adding a signature to every message.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Amusements.html#Mail-Amusements">Mail Amusements</a></td>
+    <td>Distracting the NSA; adding fortune messages.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Methods.html#Mail-Methods">Mail Methods</a></td>
+    <td>Using alternative mail-composition methods.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Mail Commands
+
+  </th></tr>
+  <tr>
+    <td><a href="Mail-Sending.html#Mail-Sending">Mail Sending</a></td>
+    <td>Commands to send the message.</td>
+  </tr>
+  <tr>
+    <td><a href="Header-Editing.html#Header-Editing">Header Editing</a></td>
+    <td>Commands to move to header fields and edit them.</td>
+  </tr>
+  <tr>
+    <td><a href="Citing-Mail.html#Citing-Mail">Citing Mail</a></td>
+    <td>Quoting a message you are replying to.</td>
+  </tr>
+  <tr>
+    <td><a href="Mail-Misc.html#Mail-Misc">Mail Misc</a></td>
+    <td>Attachments, spell checking, etc.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Reading Mail with Rmail
+
+  </th></tr>
+  <tr>
+    <td><a href="Rmail-Basics.html#Rmail-Basics">Rmail Basics</a></td>
+    <td>Basic concepts of Rmail, and simple use.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Scrolling.html#Rmail-Scrolling">Rmail Scrolling</a></td>
+    <td>Scrolling through a message.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Motion.html#Rmail-Motion">Rmail Motion</a></td>
+    <td>Moving to another message.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Deletion.html#Rmail-Deletion">Rmail Deletion</a></td>
+    <td>Deleting and expunging messages.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Inbox.html#Rmail-Inbox">Rmail Inbox</a></td>
+    <td>How mail gets into the Rmail file.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Files.html#Rmail-Files">Rmail Files</a></td>
+    <td>Using multiple Rmail files.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Output.html#Rmail-Output">Rmail Output</a></td>
+    <td>Copying message out to files.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Labels.html#Rmail-Labels">Rmail Labels</a></td>
+    <td>Classifying messages by labeling them.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Attributes.html#Rmail-Attributes">Rmail Attributes</a></td>
+    <td>Certain standard labels, called attributes.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Reply.html#Rmail-Reply">Rmail Reply</a></td>
+    <td>Sending replies to messages you are viewing.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Summary.html#Rmail-Summary">Rmail Summary</a></td>
+    <td>Summaries show brief info on many messages.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Sorting.html#Rmail-Sorting">Rmail Sorting</a></td>
+    <td>Sorting messages in Rmail.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Display.html#Rmail-Display">Rmail Display</a></td>
+    <td>How Rmail displays a message; customization.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Coding.html#Rmail-Coding">Rmail Coding</a></td>
+    <td>How Rmail handles decoding character sets.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Editing.html#Rmail-Editing">Rmail Editing</a></td>
+    <td>Editing message text and headers in Rmail.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Digest.html#Rmail-Digest">Rmail Digest</a></td>
+    <td>Extracting the messages from a digest message.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Rot13.html#Rmail-Rot13">Rmail Rot13</a></td>
+    <td>Reading messages encoded in the rot13 code.</td>
+  </tr>
+  <tr>
+    <td><a href="Movemail.html#Movemail">Movemail</a></td>
+    <td>More details of fetching new mail.</td>
+  </tr>
+  <tr>
+    <td><a href="Remote-Mailboxes.html#Remote-Mailboxes">Remote Mailboxes</a></td>
+    <td>Retrieving mail from remote mailboxes.</td>
+  </tr>
+  <tr>
+    <td><a href="Other-Mailbox-Formats.html#Other-Mailbox-Formats">Other Mailbox Formats</a></td>
+    <td>Retrieving mail from local mailboxes in
+                          various formats.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Rmail Summaries
+
+  </th></tr>
+  <tr>
+    <td><a href="Rmail-Make-Summary.html#Rmail-Make-Summary">Rmail Make Summary</a></td>
+    <td>Making various sorts of summaries.</td>
+  </tr>
+  <tr>
+    <td><a href="Rmail-Summary-Edit.html#Rmail-Summary-Edit">Rmail Summary Edit</a></td>
+    <td>Manipulating messages from the summary.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Gnus
+
+  </th></tr>
+  <tr>
+    <td><a href="Buffers-of-Gnus.html#Buffers-of-Gnus">Buffers of Gnus</a></td>
+    <td>The group, summary, and article buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="Gnus-Startup.html#Gnus-Startup">Gnus Startup</a></td>
+    <td>What you should know about starting Gnus.</td>
+  </tr>
+  <tr>
+    <td><a href="Gnus-Group-Buffer.html#Gnus-Group-Buffer">Gnus Group Buffer</a></td>
+    <td>A short description of Gnus group commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Gnus-Summary-Buffer.html#Gnus-Summary-Buffer">Gnus Summary Buffer</a></td>
+    <td>A short description of Gnus summary commands.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Document Viewing
+
+  </th></tr>
+  <tr>
+    <td><a href="DocView-Navigation.html#DocView-Navigation">DocView Navigation</a></td>
+    <td>Navigating DocView buffers.</td>
+  </tr>
+  <tr>
+    <td><a href="DocView-Searching.html#DocView-Searching">DocView Searching</a></td>
+    <td>Searching inside documents.</td>
+  </tr>
+  <tr>
+    <td><a href="DocView-Slicing.html#DocView-Slicing">DocView Slicing</a></td>
+    <td>Specifying which part of a page is displayed.</td>
+  </tr>
+  <tr>
+    <td><a href="DocView-Conversion.html#DocView-Conversion">DocView Conversion</a></td>
+    <td>Influencing and triggering conversion.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Running Shell Commands from Emacs
+
+  </th></tr>
+  <tr>
+    <td><a href="Single-Shell.html#Single-Shell">Single Shell</a></td>
+    <td>How to run one shell command and return.</td>
+  </tr>
+  <tr>
+    <td><a href="Interactive-Shell.html#Interactive-Shell">Interactive Shell</a></td>
+    <td>Permanent shell taking input via Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-Mode.html#Shell-Mode">Shell Mode</a></td>
+    <td>Special Emacs commands used with permanent shell.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-Prompts.html#Shell-Prompts">Shell Prompts</a></td>
+    <td>Two ways to recognize shell prompts.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-History.html#Shell-History">Shell History</a></td>
+    <td>Repeating previous commands in a shell buffer.</td>
+  </tr>
+  <tr>
+    <td><a href="Directory-Tracking.html#Directory-Tracking">Directory Tracking</a></td>
+    <td>Keeping track when the subshell changes directory.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-Options.html#Shell-Options">Shell Options</a></td>
+    <td>Options for customizing Shell mode.</td>
+  </tr>
+  <tr>
+    <td><a href="Terminal-emulator.html#Terminal-emulator">Terminal emulator</a></td>
+    <td>An Emacs window as a terminal emulator.</td>
+  </tr>
+  <tr>
+    <td><a href="Term-Mode.html#Term-Mode">Term Mode</a></td>
+    <td>Special Emacs commands used in Term mode.</td>
+  </tr>
+  <tr>
+    <td><a href="Remote-Host.html#Remote-Host">Remote Host</a></td>
+    <td>Connecting to another computer.</td>
+  </tr>
+  <tr>
+    <td><a href="Serial-Terminal.html#Serial-Terminal">Serial Terminal</a></td>
+    <td>Connecting to a serial port.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Shell Command History
+
+  </th></tr>
+  <tr>
+    <td><a href="Shell-Ring.html#Shell-Ring">Shell Ring</a></td>
+    <td>Fetching commands from the history list.</td>
+  </tr>
+  <tr>
+    <td><a href="Shell-History-Copying.html#Shell-History-Copying">Shell History Copying</a></td>
+    <td>Moving to a command and then copying it.</td>
+  </tr>
+  <tr>
+    <td><a href="History-References.html#History-References">History References</a></td>
+    <td>Expanding &lsquo;<samp><span class="samp">!</span></samp>&rsquo;-style history references.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Using Emacs as a Server
+
+  </th></tr>
+  <tr>
+    <td><a href="Invoking-emacsclient.html#Invoking-emacsclient">Invoking emacsclient</a></td>
+    <td>Connecting to the Emacs server.</td>
+  </tr>
+  <tr>
+    <td><a href="emacsclient-Options.html#emacsclient-Options">emacsclient Options</a></td>
+    <td>Emacs client startup options.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Printing Hard Copies
+
+  </th></tr>
+  <tr>
+    <td><a href="PostScript.html#PostScript">PostScript</a></td>
+    <td>Printing buffers or regions as PostScript.</td>
+  </tr>
+  <tr>
+    <td><a href="PostScript-Variables.html#PostScript-Variables">PostScript Variables</a></td>
+    <td>Customizing the PostScript printing commands.</td>
+  </tr>
+  <tr>
+    <td><a href="Printing-Package.html#Printing-Package">Printing Package</a></td>
+    <td>An optional advanced printing interface.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Hyperlinking and Navigation Features
+
+  </th></tr>
+  <tr>
+    <td><a href="Browse_002dURL.html#Browse_002dURL">Browse-URL</a></td>
+    <td>Following URLs.</td>
+  </tr>
+  <tr>
+    <td><a href="Goto-Address-mode.html#Goto-Address-mode">Goto Address mode</a></td>
+    <td>Activating URLs.</td>
+  </tr>
+  <tr>
+    <td><a href="FFAP.html#FFAP">FFAP</a></td>
+    <td>Finding files etc. at point.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Emacs Lisp Packages
+
+  </th></tr>
+  <tr>
+    <td><a href="Package-Menu.html#Package-Menu">Package Menu</a></td>
+    <td>Buffer for viewing and managing packages.</td>
+  </tr>
+  <tr>
+    <td><a href="Package-Installation.html#Package-Installation">Package Installation</a></td>
+    <td>Options for package installation.</td>
+  </tr>
+  <tr>
+    <td><a href="Package-Files.html#Package-Files">Package Files</a></td>
+    <td>Where packages are installed.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Customization
+
+  </th></tr>
+  <tr>
+    <td><a href="Easy-Customization.html#Easy-Customization">Easy Customization</a></td>
+    <td>Convenient way to browse and change settings.</td>
+  </tr>
+  <tr>
+    <td><a href="Variables.html#Variables">Variables</a></td>
+    <td>Many Emacs commands examine Emacs variables
+                          to decide what to do; by setting variables,
+                          you can control their functioning.</td>
+  </tr>
+  <tr>
+    <td><a href="Key-Bindings.html#Key-Bindings">Key Bindings</a></td>
+    <td>The keymaps say what command each key runs. 
+                          By changing them, you can "redefine" keys.</td>
+  </tr>
+  <tr>
+    <td><a href="Init-File.html#Init-File">Init File</a></td>
+    <td>How to write common customizations in the
+                          initialization file.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Easy Customization Interface
+
+  </th></tr>
+  <tr>
+    <td><a href="Customization-Groups.html#Customization-Groups">Customization Groups</a></td>
+    <td>How settings are classified.</td>
+  </tr>
+  <tr>
+    <td><a href="Browsing-Custom.html#Browsing-Custom">Browsing Custom</a></td>
+    <td>Browsing and searching for settings.</td>
+  </tr>
+  <tr>
+    <td><a href="Changing-a-Variable.html#Changing-a-Variable">Changing a Variable</a></td>
+    <td>How to edit an option's value and set the option.</td>
+  </tr>
+  <tr>
+    <td><a href="Saving-Customizations.html#Saving-Customizations">Saving Customizations</a></td>
+    <td>Saving customizations for future Emacs sessions.</td>
+  </tr>
+  <tr>
+    <td><a href="Face-Customization.html#Face-Customization">Face Customization</a></td>
+    <td>How to edit the attributes of a face.</td>
+  </tr>
+  <tr>
+    <td><a href="Specific-Customization.html#Specific-Customization">Specific Customization</a></td>
+    <td>Customizing specific settings or groups.</td>
+  </tr>
+  <tr>
+    <td><a href="Custom-Themes.html#Custom-Themes">Custom Themes</a></td>
+    <td>Collections of customization settings.</td>
+  </tr>
+  <tr>
+    <td><a href="Creating-Custom-Themes.html#Creating-Custom-Themes">Creating Custom Themes</a></td>
+    <td>How to create a new custom theme.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Variables
+
+  </th></tr>
+  <tr>
+    <td><a href="Examining.html#Examining">Examining</a></td>
+    <td>Examining or setting one variable's value.</td>
+  </tr>
+  <tr>
+    <td><a href="Hooks.html#Hooks">Hooks</a></td>
+    <td>Hook variables let you specify programs for parts
+                          of Emacs to run on particular occasions.</td>
+  </tr>
+  <tr>
+    <td><a href="Locals.html#Locals">Locals</a></td>
+    <td>Per-buffer values of variables.</td>
+  </tr>
+  <tr>
+    <td><a href="File-Variables.html#File-Variables">File Variables</a></td>
+    <td>How files can specify variable values.</td>
+  </tr>
+  <tr>
+    <td><a href="Directory-Variables.html#Directory-Variables">Directory Variables</a></td>
+    <td>How variable values can be specified by directory.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Local Variables in Files
+
+  </th></tr>
+  <tr>
+    <td><a href="Specifying-File-Variables.html#Specifying-File-Variables">Specifying File Variables</a></td>
+    <td>Specifying file local variables.</td>
+  </tr>
+  <tr>
+    <td><a href="Safe-File-Variables.html#Safe-File-Variables">Safe File Variables</a></td>
+    <td>Making sure file local variables are safe.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Customizing Key Bindings
+
+  </th></tr>
+  <tr>
+    <td><a href="Keymaps.html#Keymaps">Keymaps</a></td>
+    <td>Generalities.  The global keymap.</td>
+  </tr>
+  <tr>
+    <td><a href="Prefix-Keymaps.html#Prefix-Keymaps">Prefix Keymaps</a></td>
+    <td>Keymaps for prefix keys.</td>
+  </tr>
+  <tr>
+    <td><a href="Local-Keymaps.html#Local-Keymaps">Local Keymaps</a></td>
+    <td>Major and minor modes have their own keymaps.</td>
+  </tr>
+  <tr>
+    <td><a href="Minibuffer-Maps.html#Minibuffer-Maps">Minibuffer Maps</a></td>
+    <td>The minibuffer uses its own local keymaps.</td>
+  </tr>
+  <tr>
+    <td><a href="Rebinding.html#Rebinding">Rebinding</a></td>
+    <td>How to redefine one key's meaning conveniently.</td>
+  </tr>
+  <tr>
+    <td><a href="Init-Rebinding.html#Init-Rebinding">Init Rebinding</a></td>
+    <td>Rebinding keys with your initialization file.</td>
+  </tr>
+  <tr>
+    <td><a href="Modifier-Keys.html#Modifier-Keys">Modifier Keys</a></td>
+    <td>Using modifier keys in key bindings.</td>
+  </tr>
+  <tr>
+    <td><a href="Function-Keys.html#Function-Keys">Function Keys</a></td>
+    <td>Rebinding terminal function keys.</td>
+  </tr>
+  <tr>
+    <td><a href="Named-ASCII-Chars.html#Named-ASCII-Chars">Named ASCII Chars</a></td>
+    <td>Distinguishing &lt;TAB&gt; from <kbd>C-i</kbd>, and so on.</td>
+  </tr>
+  <tr>
+    <td><a href="Mouse-Buttons.html#Mouse-Buttons">Mouse Buttons</a></td>
+    <td>Rebinding mouse buttons in Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Disabling.html#Disabling">Disabling</a></td>
+    <td>Disabling a command means confirmation is required
+                          before it can be executed.  This is done to protect
+                          beginners from surprises.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">The Emacs Initialization File
+
+  </th></tr>
+  <tr>
+    <td><a href="Init-Syntax.html#Init-Syntax">Init Syntax</a></td>
+    <td>Syntax of constants in Emacs Lisp.</td>
+  </tr>
+  <tr>
+    <td><a href="Init-Examples.html#Init-Examples">Init Examples</a></td>
+    <td>How to do some things with an init file.</td>
+  </tr>
+  <tr>
+    <td><a href="Terminal-Init.html#Terminal-Init">Terminal Init</a></td>
+    <td>Each terminal type can have an init file.</td>
+  </tr>
+  <tr>
+    <td><a href="Find-Init.html#Find-Init">Find Init</a></td>
+    <td>How Emacs finds the init file.</td>
+  </tr>
+  <tr>
+    <td><a href="Init-Non_002dASCII.html#Init-Non_002dASCII">Init Non-ASCII</a></td>
+    <td>Using non-<acronym>ASCII</acronym> characters in an init file.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Dealing with Emacs Trouble
+
+  </th></tr>
+  <tr>
+    <td><a href="DEL-Does-Not-Delete.html#DEL-Does-Not-Delete">DEL Does Not Delete</a></td>
+    <td>What to do if &lt;DEL&gt; doesn't delete.</td>
+  </tr>
+  <tr>
+    <td><a href="Stuck-Recursive.html#Stuck-Recursive">Stuck Recursive</a></td>
+    <td>`[...]' in mode line around the parentheses.</td>
+  </tr>
+  <tr>
+    <td><a href="Screen-Garbled.html#Screen-Garbled">Screen Garbled</a></td>
+    <td>Garbage on the screen.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-Garbled.html#Text-Garbled">Text Garbled</a></td>
+    <td>Garbage in the text.</td>
+  </tr>
+  <tr>
+    <td><a href="Memory-Full.html#Memory-Full">Memory Full</a></td>
+    <td>How to cope when you run out of memory.</td>
+  </tr>
+  <tr>
+    <td><a href="Crashing.html#Crashing">Crashing</a></td>
+    <td>What Emacs does when it crashes.</td>
+  </tr>
+  <tr>
+    <td><a href="After-a-Crash.html#After-a-Crash">After a Crash</a></td>
+    <td>Recovering editing in an Emacs session that crashed.</td>
+  </tr>
+  <tr>
+    <td><a href="Emergency-Escape.html#Emergency-Escape">Emergency Escape</a></td>
+    <td>What to do if Emacs stops responding.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Reporting Bugs
+
+  </th></tr>
+  <tr>
+    <td><a href="Known-Problems.html#Known-Problems">Known Problems</a></td>
+    <td>How to read about known problems and bugs.</td>
+  </tr>
+  <tr>
+    <td><a href="Bug-Criteria.html#Bug-Criteria">Bug Criteria</a></td>
+    <td>Have you really found a bug?</td>
+  </tr>
+  <tr>
+    <td><a href="Understanding-Bug-Reporting.html#Understanding-Bug-Reporting">Understanding Bug Reporting</a></td>
+    <td>How to report a bug effectively.</td>
+  </tr>
+  <tr>
+    <td><a href="Checklist.html#Checklist">Checklist</a></td>
+    <td>Steps to follow for a good bug report.</td>
+  </tr>
+  <tr>
+    <td><a href="Sending-Patches.html#Sending-Patches">Sending Patches</a></td>
+    <td>How to send a patch for GNU Emacs.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Command Line Arguments for Emacs Invocation
+
+  </th></tr>
+  <tr>
+    <td><a href="Action-Arguments.html#Action-Arguments">Action Arguments</a></td>
+    <td>Arguments to visit files, load libraries,
+                          and call functions.</td>
+  </tr>
+  <tr>
+    <td><a href="Initial-Options.html#Initial-Options">Initial Options</a></td>
+    <td>Arguments that take effect while starting Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Command-Example.html#Command-Example">Command Example</a></td>
+    <td>Examples of using command line arguments.</td>
+  </tr>
+  <tr>
+    <td><a href="Environment.html#Environment">Environment</a></td>
+    <td>Environment variables that Emacs uses.</td>
+  </tr>
+  <tr>
+    <td><a href="Display-X.html#Display-X">Display X</a></td>
+    <td>Changing the default display and using remote login.</td>
+  </tr>
+  <tr>
+    <td><a href="Font-X.html#Font-X">Font X</a></td>
+    <td>Choosing a font for text, under X.</td>
+  </tr>
+  <tr>
+    <td><a href="Colors-X.html#Colors-X">Colors X</a></td>
+    <td>Choosing display colors.</td>
+  </tr>
+  <tr>
+    <td><a href="Window-Size-X.html#Window-Size-X">Window Size X</a></td>
+    <td>Start-up window size, under X.</td>
+  </tr>
+  <tr>
+    <td><a href="Borders-X.html#Borders-X">Borders X</a></td>
+    <td>Internal and external borders, under X.</td>
+  </tr>
+  <tr>
+    <td><a href="Title-X.html#Title-X">Title X</a></td>
+    <td>Specifying the initial frame's title.</td>
+  </tr>
+  <tr>
+    <td><a href="Icons-X.html#Icons-X">Icons X</a></td>
+    <td>Choosing what sort of icon to use, under X.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-X.html#Misc-X">Misc X</a></td>
+    <td>Other display options.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Environment Variables
+
+  </th></tr>
+  <tr>
+    <td><a href="General-Variables.html#General-Variables">General Variables</a></td>
+    <td>Environment variables that all versions of Emacs use.</td>
+  </tr>
+  <tr>
+    <td><a href="Misc-Variables.html#Misc-Variables">Misc Variables</a></td>
+    <td>Certain system-specific variables.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dWindows-Registry.html#MS_002dWindows-Registry">MS-Windows Registry</a></td>
+    <td>An alternative to the environment on MS-Windows.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">X Options and Resources
+
+  </th></tr>
+  <tr>
+    <td><a href="Resources.html#Resources">Resources</a></td>
+    <td>Using X resources with Emacs (in general).</td>
+  </tr>
+  <tr>
+    <td><a href="Table-of-Resources.html#Table-of-Resources">Table of Resources</a></td>
+    <td>Table of specific X resources that affect Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="Lucid-Resources.html#Lucid-Resources">Lucid Resources</a></td>
+    <td>X resources for Lucid menus.</td>
+  </tr>
+  <tr>
+    <td><a href="LessTif-Resources.html#LessTif-Resources">LessTif Resources</a></td>
+    <td>X resources for LessTif and Motif menus.</td>
+  </tr>
+  <tr>
+    <td><a href="GTK-resources.html#GTK-resources">GTK resources</a></td>
+    <td>Resources for GTK widgets.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">GTK resources
+
+  </th></tr>
+  <tr>
+    <td><a href="GTK-Resource-Basics.html#GTK-Resource-Basics">GTK Resource Basics</a></td>
+    <td>Basic usage of GTK+ resources.</td>
+  </tr>
+  <tr>
+    <td><a href="GTK-Widget-Names.html#GTK-Widget-Names">GTK Widget Names</a></td>
+    <td>How GTK+ widgets are named.</td>
+  </tr>
+  <tr>
+    <td><a href="GTK-Names-in-Emacs.html#GTK-Names-in-Emacs">GTK Names in Emacs</a></td>
+    <td>GTK widgets used by Emacs.</td>
+  </tr>
+  <tr>
+    <td><a href="GTK-styles.html#GTK-styles">GTK styles</a></td>
+    <td>What can be customized in a GTK widget.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Emacs and Mac OS / GNUstep
+
+  </th></tr>
+  <tr>
+    <td><a href="Mac-_002f-GNUstep-Basics.html#Mac-_002f-GNUstep-Basics">Mac / GNUstep Basics</a></td>
+    <td>Basic Emacs usage under GNUstep or Mac OS.</td>
+  </tr>
+  <tr>
+    <td><a href="Mac-_002f-GNUstep-Customization.html#Mac-_002f-GNUstep-Customization">Mac / GNUstep Customization</a></td>
+    <td>Customizations under GNUstep or Mac OS.</td>
+  </tr>
+  <tr>
+    <td><a href="Mac-_002f-GNUstep-Events.html#Mac-_002f-GNUstep-Events">Mac / GNUstep Events</a></td>
+    <td>How window system events are handled.</td>
+  </tr>
+  <tr>
+    <td><a href="GNUstep-Support.html#GNUstep-Support">GNUstep Support</a></td>
+    <td>Details on status of GNUstep support.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Emacs and Microsoft Windows/MS-DOS
+
+  </th></tr>
+  <tr>
+    <td><a href="Windows-Startup.html#Windows-Startup">Windows Startup</a></td>
+    <td>How to start Emacs on Windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Text-and-Binary.html#Text-and-Binary">Text and Binary</a></td>
+    <td>Text files use CRLF to terminate lines.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Files.html#Windows-Files">Windows Files</a></td>
+    <td>File-name conventions on Windows.</td>
+  </tr>
+  <tr>
+    <td><a href="ls-in-Lisp.html#ls-in-Lisp">ls in Lisp</a></td>
+    <td>Emulation of <code>ls</code> for Dired.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-HOME.html#Windows-HOME">Windows HOME</a></td>
+    <td>Where Emacs looks for your <samp><span class="file">.emacs</span></samp> and
+                          where it starts up.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Keyboard.html#Windows-Keyboard">Windows Keyboard</a></td>
+    <td>Windows-specific keyboard features.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Mouse.html#Windows-Mouse">Windows Mouse</a></td>
+    <td>Windows-specific mouse features.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Processes.html#Windows-Processes">Windows Processes</a></td>
+    <td>Running subprocesses on Windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Printing.html#Windows-Printing">Windows Printing</a></td>
+    <td>How to specify the printer on MS-Windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Fonts.html#Windows-Fonts">Windows Fonts</a></td>
+    <td>Specifying fonts on MS-Windows.</td>
+  </tr>
+  <tr>
+    <td><a href="Windows-Misc.html#Windows-Misc">Windows Misc</a></td>
+    <td>Miscellaneous Windows features.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS.html#MS_002dDOS">MS-DOS</a></td>
+    <td>Using Emacs on MS-DOS.
+
+  </td></tr>  <tr>
+    <th colspan="2" align="left" style="text-align:left">Emacs and MS-DOS
+
+  </th></tr>
+  <tr>
+    <td><a href="MS_002dDOS-Keyboard.html#MS_002dDOS-Keyboard">MS-DOS Keyboard</a></td>
+    <td>Keyboard conventions on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-Mouse.html#MS_002dDOS-Mouse">MS-DOS Mouse</a></td>
+    <td>Mouse conventions on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-Display.html#MS_002dDOS-Display">MS-DOS Display</a></td>
+    <td>Fonts, frames and display size on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-File-Names.html#MS_002dDOS-File-Names">MS-DOS File Names</a></td>
+    <td>File name conventions on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-Printing.html#MS_002dDOS-Printing">MS-DOS Printing</a></td>
+    <td>Printing specifics on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-and-MULE.html#MS_002dDOS-and-MULE">MS-DOS and MULE</a></td>
+    <td>Support for internationalization on MS-DOS.</td>
+  </tr>
+  <tr>
+    <td><a href="MS_002dDOS-Processes.html#MS_002dDOS-Processes">MS-DOS Processes</a></td>
+    <td>Running subprocesses on MS-DOS.
+  </td></tr>
+</table>
+   <p>Copyright &copy; 1985&ndash;1987, 1993&ndash;2013 Free Software Foundation, Inc.
+
+   <blockquote>
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being &ldquo;The GNU Manifesto,&rdquo; &ldquo;Distribution&rdquo; and
+&ldquo;GNU GENERAL PUBLIC LICENSE,&rdquo; with the Front-Cover texts being &ldquo;A GNU
+Manual,&rdquo; and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled &ldquo;GNU Free Documentation
+License.&rdquo;
+
+   <p>(a) The FSF's Back-Cover Text is: &ldquo;You have the freedom to copy and
+modify this GNU manual.  Buying copies from the FSF supports it in
+developing GNU and promoting software freedom.&rdquo;
+</blockquote>
+</div>
+
+   </body></html>
+
+<!--
+
+Local Variables:
+coding: iso-8859-1
+End:
+
+-->

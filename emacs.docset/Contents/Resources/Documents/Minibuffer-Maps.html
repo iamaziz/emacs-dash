@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.256233,-71.006581">
+<meta name="DC.title" content="gnu.org">
+
+<title>Minibuffer Maps - GNU Emacs Manual</title>
+<style type="text/css">
+@import url('/style.css');
+</style>
+<!--
+This is the `GNU Emacs Manual',
+updated for Emacs version 24.3.
+
+Copyright (C) 1985--1987, 1993--2013 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with the Invariant Sections being ``The GNU
+     Manifesto,'' ``Distribution'' and ``GNU GENERAL PUBLIC LICENSE,''
+     with the Front-Cover texts being ``A GNU Manual,'' and with the
+     Back-Cover Texts as in (a) below.  A copy of the license is
+     included in the section entitled ``GNU Free Documentation
+     License.''
+
+     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
+     and modify this GNU manual.  Buying copies from the FSF supports
+     it in developing GNU and promoting software freedom.''
+   -->
+</head>
+<body>
+<div class="node" style="background-color:#DDDDFF">
+<a name="Minibuffer-Maps"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Rebinding.html#Rebinding">Rebinding</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Local-Keymaps.html#Local-Keymaps">Local Keymaps</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Key-Bindings.html#Key-Bindings">Key Bindings</a>
+
+</div>
+
+<h4 class="subsection">48.3.4 Minibuffer Keymaps</h4>
+
+<p><a name="index-minibuffer-keymaps-4391"></a><a name="index-minibuffer_002dlocal_002dmap-4392"></a><a name="index-minibuffer_002dlocal_002dns_002dmap-4393"></a><a name="index-minibuffer_002dlocal_002dcompletion_002dmap-4394"></a><a name="index-minibuffer_002dlocal_002dmust_002dmatch_002dmap-4395"></a><a name="index-minibuffer_002dlocal_002dfilename_002dcompletion_002dmap-4396"></a><a name="index-minibuffer_002dlocal_002dfilename_002dmust_002dmatch_002dmap-4397"></a>  The minibuffer has its own set of local keymaps; they contain various
+completion and exit commands.
+
+     <ul>
+<li><code>minibuffer-local-map</code> is used for ordinary input (no completion). 
+<li><code>minibuffer-local-ns-map</code> is similar, except that &lt;SPC&gt; exits
+just like &lt;RET&gt;. 
+<li><code>minibuffer-local-completion-map</code> is for permissive completion. 
+<li><code>minibuffer-local-must-match-map</code> is for strict completion and
+for cautious completion. 
+<li><code>minibuffer-local-filename-completion-map</code> and
+<code>minibuffer-local-filename-must-match-map</code> are like the two
+previous ones, but they are specifically for file name completion. 
+They do not bind &lt;SPC&gt;. 
+</ul>
+
+   </body></html>
+
