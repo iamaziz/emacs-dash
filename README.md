@@ -1,6 +1,6 @@
 ## Emacs editor dash-docset
 
-The emacs editor docset for (Dash)[http://kapeli.com/dash].
+The emacs editor docset for [Dash](http://kapeli.com/dash).
 
 
 You can use it with Dash by:
